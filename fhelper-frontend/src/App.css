@@ -1,8 +1,6 @@
 /* Navbar */
 
 .navbar-inverse {
-  background-color: #00171F;
-  border-color: #00171F;
   background-image: linear-gradient(to bottom, #3c3c3c 0%, #00171F 100%);
 }
 
@@ -21,3 +19,32 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+/* Login Page */
+
+.form-login {
+  padding: 15px;
+  background-color: #00A8E8;
+}
+
+#form-login-tabs ul {
+  background-color: #007EA7;
+}
+
+#form-login-tabs a {
+  background-color: transparent;
+  color: #3c3c3c;
+  border: none;
+  outline: none;
+  text-align: center;
+}
+
+#form-login-tabs li.active a {
+  color: #000000;
+  text-decoration: underline;
+}
+
+#form-login-tabs li {
+    width: 50%;
+}
+
