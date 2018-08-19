@@ -1,7 +1,6 @@
 package ru.bukharov.fhelper.cbr.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 import lombok.Data;
@@ -11,19 +10,23 @@ import ru.bukharov.fhelper.common.marshalling.FlexibleDoubleDeserializer;
 @Data
 @NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class CbrValute {
-    @JsonProperty("ID")
+public class CbrDailyRate {
     @JacksonXmlProperty(isAttribute = true, localName = "ID")
     private String id;
-    @JsonProperty("NumCode")
+
+    @JacksonXmlProperty(localName = "NumCode")
     private String numCode;
-    @JsonProperty("CharCode")
+
+    @JacksonXmlProperty(localName = "CharCode")
     private String charCode;
-    @JsonProperty("Name")
+
+    @JacksonXmlProperty(localName = "Name")
     private String name;
-    @JsonProperty("Nominal")
+
+    @JacksonXmlProperty(localName = "Nominal")
     private Integer nominal;
-    @JsonProperty("Value")
+
+    @JacksonXmlProperty(localName = "Value")
     @JsonDeserialize(using = FlexibleDoubleDeserializer.class, as = Double.class)
     private Double value;
 }
