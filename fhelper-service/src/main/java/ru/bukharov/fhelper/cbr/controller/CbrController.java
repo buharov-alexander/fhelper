@@ -18,19 +18,20 @@ import java.util.List;
 @RequestMapping("/cbr")
 public class CbrController {
 
+    private static final String DATE_FORMAT = "dd.MM.yyyy";
     @Autowired
     private CbrService cbrService;
 
     @GetMapping(path = "/rates/daily", produces = {MediaType.APPLICATION_JSON_VALUE})
-    public CbrDailyRates getDailyRates(@DateTimeFormat(pattern = "dd.MM.yyyy")
+    public CbrDailyRates getDailyRates(@DateTimeFormat(pattern = DATE_FORMAT)
                                        @RequestParam(name = "date", required = false) Date date,
                                        @RequestParam(name = "valutaCodes", required = false) List<String> valutaCodes) {
         return cbrService.getDailyRates(date, valutaCodes);
     }
 
     @GetMapping(path = "/rates/dynamic", produces = {MediaType.APPLICATION_JSON_VALUE})
-    public CbrDynamicRates getDynamicRates(@DateTimeFormat(pattern = "dd.MM.yyyy") @RequestParam("rangeFrom") Date rangeFrom,
-                                           @DateTimeFormat(pattern = "dd.MM.yyyy") @RequestParam("rangeTo") Date rangeTo,
+    public CbrDynamicRates getDynamicRates(@DateTimeFormat(pattern = DATE_FORMAT) @RequestParam("rangeFrom") Date rangeFrom,
+                                           @DateTimeFormat(pattern = DATE_FORMAT) @RequestParam("rangeTo") Date rangeTo,
                                            @RequestParam("valutaCode") String valutaCode) {
         return cbrService.getDynamicRates(valutaCode, rangeFrom, rangeTo);
     }
