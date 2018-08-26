@@ -1,4 +1,4 @@
-package ru.bukharov.fhelper.common.exception.dto;
+package ru.bukharov.fhelper.common.rest.dto;
 
 import lombok.Getter;
 import lombok.Setter;
