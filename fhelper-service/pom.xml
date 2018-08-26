@@ -39,6 +39,12 @@
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
 
+        <!--Postgresql-->
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+        </dependency>
+
         <!--Jackson-->
         <dependency>
             <groupId>com.fasterxml.jackson.dataformat</groupId>
