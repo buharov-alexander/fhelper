@@ -1,5 +1,6 @@
 package ru.bukharov.fhelper.cbr.service;
 
+import org.apache.commons.collections4.CollectionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,18 +30,21 @@ public class CbrServiceImpl implements CbrService {
     private static final String RANGE_TO = "date_req2";
     private static final String VALUTA_CODE = "VAL_NM_RQ";
 
-    private Logger log = LoggerFactory.getLogger(CbrServiceImpl.class);
+    private final Logger log = LoggerFactory.getLogger(CbrServiceImpl.class);
+
+    private final UrlService urlService;
+    private final XmlProvider xmlProvider;
+    private final DateFormat cbrDateFormat = new SimpleDateFormat("dd.MM.yyyy");
 
     @Autowired
-    private UrlService urlService;
-    @Autowired
-    private XmlProvider xmlProvider;
-    private DateFormat cbrDateFormat = new SimpleDateFormat("dd.MM.yyyy");
-
+    public CbrServiceImpl(UrlService urlService, XmlProvider xmlProvider) {
+        this.urlService = urlService;
+        this.xmlProvider = xmlProvider;
+    }
 
     @Override
     public CbrDailyRates getDailyRates(Date date) {
-        return getDailyRates(date);
+        return getDailyRates(date, null);
     }
 
     @Override
@@ -54,7 +58,7 @@ public class CbrServiceImpl implements CbrService {
                     .toURL();
 
             CbrDailyRates cbrDailyRates = xmlProvider.unmarshal(urlService.readUrl(url), CbrDailyRates.class);
-            filterValutas(cbrDailyRates, valutaCodes);
+            filterValuta(cbrDailyRates, valutaCodes);
             return cbrDailyRates;
         } catch (IOException e) {
             log.error(e.getMessage(), e);
@@ -80,8 +84,8 @@ public class CbrServiceImpl implements CbrService {
         }
     }
 
-    private void filterValutas(CbrDailyRates cbrDailyRates, List<String> valutaCodes) {
-        if (valutaCodes != null) {
+    private void filterValuta(CbrDailyRates cbrDailyRates, List<String> valutaCodes) {
+        if (CollectionUtils.isNotEmpty(valutaCodes)) {
             List<CbrDailyRate> rates = cbrDailyRates.getRates().stream()
                     .filter(rate -> valutaCodes.contains(rate.getId()))
                     .collect(Collectors.toList());

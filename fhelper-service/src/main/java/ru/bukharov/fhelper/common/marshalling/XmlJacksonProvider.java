@@ -10,7 +10,7 @@ import java.io.IOException;
 @Service
 public class XmlJacksonProvider implements XmlProvider {
 
-    private Logger log = LoggerFactory.getLogger(XmlJacksonProvider.class);
+    private final Logger log = LoggerFactory.getLogger(XmlJacksonProvider.class);
 
     @Override
     public <T> T unmarshal(String xml, Class<T> clazz) throws IOException {

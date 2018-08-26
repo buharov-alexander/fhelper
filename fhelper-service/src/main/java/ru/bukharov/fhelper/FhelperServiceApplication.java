@@ -4,9 +4,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class FhelpServiceApplication {
+public class FhelperServiceApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(FhelpServiceApplication.class, args);
+		SpringApplication.run(FhelperServiceApplication.class, args);
 	}
 }

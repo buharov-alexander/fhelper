@@ -15,7 +15,7 @@ import java.nio.charset.Charset;
 @Service
 public class UrlServiceImpl implements UrlService {
 
-    private Logger log = LoggerFactory.getLogger(UrlServiceImpl.class);
+    private final Logger log = LoggerFactory.getLogger(UrlServiceImpl.class);
 
     @Override
     public String readUrl(URL url) throws IOException {

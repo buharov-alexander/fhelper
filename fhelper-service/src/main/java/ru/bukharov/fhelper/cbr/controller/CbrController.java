@@ -19,8 +19,12 @@ import java.util.List;
 public class CbrController {
 
     private static final String DATE_FORMAT = "dd.MM.yyyy";
+    private final CbrService cbrService;
+
     @Autowired
-    private CbrService cbrService;
+    public CbrController(CbrService cbrService) {
+        this.cbrService = cbrService;
+    }
 
     @GetMapping(path = "/rates/daily", produces = {MediaType.APPLICATION_JSON_VALUE})
     public CbrDailyRates getDailyRates(@DateTimeFormat(pattern = DATE_FORMAT)

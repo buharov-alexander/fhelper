@@ -32,6 +32,6 @@ public class SwaggerConfig {
                 "1.0",
                 "https://termsfeed.com/terms-conditions/66fda3f1d2e44ca363438a4eb89fa64a",
                 new Contact("Alexander Bukharov", "https://buharov-alexander.github.io/", "buharovsasha@yandex.ru"),
-                "Apache 2.0", "http://www.apache.org/licenses/LICENSE-2.0", new ArrayList());
+                "Apache 2.0", "http://www.apache.org/licenses/LICENSE-2.0", new ArrayList<>());
     }
 }

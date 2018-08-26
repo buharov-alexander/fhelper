@@ -21,6 +21,7 @@
     <properties>
         <jackson.version>2.9.6</jackson.version>
         <lombok.version>1.18.2</lombok.version>
+        <apache.commons.collections.version>4.2</apache.commons.collections.version>
         <swagger.version>2.9.2</swagger.version>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -47,6 +48,13 @@
             <artifactId>lombok</artifactId>
             <version>${lombok.version}</version>
             <scope>provided</scope>
+        </dependency>
+
+        <!--Apache commons-->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-collections4</artifactId>
+            <version>${apache.commons.collections.version}</version>
         </dependency>
 
         <!-- Swagger -->
