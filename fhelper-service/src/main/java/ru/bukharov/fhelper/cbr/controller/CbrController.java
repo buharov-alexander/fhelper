@@ -1,5 +1,7 @@
 package ru.bukharov.fhelper.cbr.controller;
 
+import java.util.Date;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.MediaType;
@@ -10,9 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 import ru.bukharov.fhelper.cbr.dto.CbrDailyRates;
 import ru.bukharov.fhelper.cbr.dto.CbrDynamicRates;
 import ru.bukharov.fhelper.cbr.service.CbrService;
-
-import java.util.Date;
-import java.util.List;
 
 @RestController
 @RequestMapping("/cbr")

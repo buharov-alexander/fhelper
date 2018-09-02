@@ -1,5 +1,6 @@
 package ru.bukharov.fhelper.cbr.dto;
 
+import java.util.Date;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
@@ -7,8 +8,6 @@ import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import ru.bukharov.fhelper.common.marshalling.FlexibleDoubleDeserializer;
-
-import java.util.Date;
 
 @Data
 @NoArgsConstructor

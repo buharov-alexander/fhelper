@@ -1,5 +1,12 @@
 package ru.bukharov.fhelper.cbr.service;
 
+import java.io.IOException;
+import java.net.URL;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
+import java.util.stream.Collectors;
 import org.apache.commons.collections4.CollectionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,14 +18,6 @@ import ru.bukharov.fhelper.cbr.dto.CbrDailyRates;
 import ru.bukharov.fhelper.cbr.dto.CbrDynamicRates;
 import ru.bukharov.fhelper.common.io.UrlService;
 import ru.bukharov.fhelper.common.marshalling.XmlProvider;
-
-import java.io.IOException;
-import java.net.URL;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class CbrServiceImpl implements CbrService {

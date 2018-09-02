@@ -1,10 +1,9 @@
 package ru.bukharov.fhelper.common.marshalling;
 
+import java.io.IOException;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonDeserializer;
-
-import java.io.IOException;
 
 public class FlexibleDoubleDeserializer extends JsonDeserializer<Double> {
     @Override

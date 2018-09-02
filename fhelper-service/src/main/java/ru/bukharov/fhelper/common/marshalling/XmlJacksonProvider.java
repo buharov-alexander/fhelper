@@ -1,11 +1,10 @@
 package ru.bukharov.fhelper.common.marshalling;
 
+import java.io.IOException;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
-
-import java.io.IOException;
 
 @Service
 public class XmlJacksonProvider implements XmlProvider {

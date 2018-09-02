@@ -1,10 +1,9 @@
 package ru.bukharov.fhelper.cbr.service;
 
-import ru.bukharov.fhelper.cbr.dto.CbrDailyRates;
-import ru.bukharov.fhelper.cbr.dto.CbrDynamicRates;
-
 import java.util.Date;
 import java.util.List;
+import ru.bukharov.fhelper.cbr.dto.CbrDailyRates;
+import ru.bukharov.fhelper.cbr.dto.CbrDynamicRates;
 
 public interface CbrService {
     CbrDailyRates getDailyRates(Date date);
