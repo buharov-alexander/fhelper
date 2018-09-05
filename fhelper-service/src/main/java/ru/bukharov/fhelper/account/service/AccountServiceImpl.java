@@ -30,6 +30,7 @@ public class AccountServiceImpl implements AccountService {
     @Override
     @Transactional
     public AccountEntity createAccounts(AccountEntity accountEntity) {
+        //TODO add validation
         UserEntity currentLoggedInUser = userService.getCurrentLoggedInUser();
         accountEntity.setUserId(currentLoggedInUser.getId());
         return accountDao.save(accountEntity);

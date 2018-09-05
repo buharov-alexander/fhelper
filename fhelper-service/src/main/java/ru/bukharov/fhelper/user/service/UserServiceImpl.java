@@ -24,6 +24,7 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional
     public UserEntity createUser(UserEntity userEntity) {
+        //TODO add validation
         userEntity.setEnabled(true);
         return userDAO.save(userEntity);
     }

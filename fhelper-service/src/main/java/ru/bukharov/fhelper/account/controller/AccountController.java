@@ -37,6 +37,7 @@ public class AccountController {
 
     @PostMapping(produces = {MediaType.APPLICATION_JSON_VALUE})
     public AccountViewDTO createAccount(CreateAccountDTO accountDTO) {
+        //TODO add validation
         AccountEntity accountEntity = createAccountDtoAssembler.convertToEntity(accountDTO);
         accountEntity = accountService.createAccounts(accountEntity);
         return accountViewDtoAssembler.convertToDto(accountEntity);

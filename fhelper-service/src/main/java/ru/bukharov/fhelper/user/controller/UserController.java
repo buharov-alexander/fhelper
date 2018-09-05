@@ -35,6 +35,7 @@ public class UserController {
 
     @PostMapping(produces = {MediaType.APPLICATION_JSON_VALUE})
     public UserViewDTO createUser(CreateUserDTO userDTO) {
+        //TODO add validation
         UserEntity userEntity = userService.createUser(createUserDtoAssembler.convertToEntity(userDTO));
         return userViewDtoAssembler.convertToDto(userEntity);
     }
