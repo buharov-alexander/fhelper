@@ -1,6 +1,6 @@
-import usaFlag from '../../images/usa_flag.png';
-import euroFlag from '../../images/euro_flag.png';
-import micex from '../../images/micex.png';
-import brent from '../../images/brent.png';
+import usaFlag from 'resources/img/usa_flag.png';
+import euroFlag from 'resources/img/euro_flag.png';
+import micex from 'resources/img/micex.png';
+import brent from 'resources/img/brent.png';
 
 export {usaFlag, euroFlag, micex, brent};
