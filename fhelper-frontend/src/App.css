@@ -1,3 +1,47 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+/* Color */
+
+.green-gradient {
+  background-image: linear-gradient(to bottom, #41BB4C 0%, #0BA449 100%);
+}
+
+.white {
+  color: #fff;
+}
+
+.grey {
+  background-color: #F9F9F9;
+}
+
+/* Block element */
+
+.no-padding {
+  padding: 0;
+}
+
+.margin-vert-auto {
+  margin: 0 auto;
+}
+
+/* Flex element */
+
+.flex-vert-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.row-eq-height {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 /* Navbar */
 
 .navbar-inverse {
@@ -20,20 +64,56 @@
   to { transform: rotate(360deg); }
 }
 
+/* Footer */
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
 /* Login Page */
+
+.login-main {
+  margin-bottom: 60px;
+}
+
+@media (max-width: 544px) { 
+  .login-main {
+    margin-bottom: 120px;
+  }
+}
+
+.login-top-block {
+  padding: 100px 20px 100px 20px;
+  margin-bottom: 10px;
+  border-radius: 0px 0px 25px 0px;
+  height: 500px;
+  width: 340px;
+}
+
+.login-bottom-block {
+  border-radius: 25px 0px 0px 0px;
+}
 
 .form-login {
   padding: 15px;
-  background-color: #00A8E8;
+  background-color: #fff;
+  border-radius: 25px;
 }
 
-#form-login-tabs ul {
-  background-color: #007EA7;
+#login-label {
+  margin-top: 0;
+}
+
+#form-login-tabs {
+  width: 300px;
+  border-radius: 25px;
 }
 
 #form-login-tabs a {
   background-color: transparent;
-  color: #3c3c3c;
+  color: #777;
   border: none;
   outline: none;
   text-align: center;
@@ -48,3 +128,42 @@
     width: 50%;
 }
 
+/* Button */
+
+.button {
+  display: block;
+  border-radius: 25px;
+  width: 120px;
+  border: 0 none;
+}
+
+  
+.button.btn-primary {
+    background: #FF9C27;
+    color: #fff;
+}
+ 
+.button.btn-primary:hover {
+    background: #ee9324;
+}
+ 
+.button.btn-primary:active, .button.btn-primary:focus {
+    background: #c0761c;
+    box-shadow: none;
+    outline: none;
+}
+
+/* Rates */
+
+.img-rate {
+  margin: 10px 0;
+  height: 40px;
+  width: 40px;
+}
+
+.label-rate {
+  display: inline;
+  margin-left: 10px;
+  vertical-align: middle;
+  font-size: 1.2em;
+}

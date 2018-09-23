@@ -19,7 +19,7 @@ export default class LoginForm extends React.PureComponent {
 
   render() {
     return (
-      <Tabs id="form-login-tabs" defaultActiveKey={1}>
+      <Tabs id="form-login-tabs" className="grey margin-vert-auto" defaultActiveKey={1}>
         <Tab eventKey={1} title="Log In">
           <form className="form-login">
             <FormGroup
@@ -27,6 +27,7 @@ export default class LoginForm extends React.PureComponent {
               validationState={this.validationLogin}
             >
               <FormControl
+                className="grey"
                 type="text"
                 value={null}
                 placeholder="Login"
@@ -39,6 +40,7 @@ export default class LoginForm extends React.PureComponent {
               validationState={this.validationPassword}
             >
               <FormControl
+                className="grey"
                 type="password"
                 value={null}
                 placeholder="Password"
@@ -46,7 +48,7 @@ export default class LoginForm extends React.PureComponent {
               />
               <FormControl.Feedback />
             </FormGroup>
-            <Button type="submit">Submit</Button>
+            <Button className="button margin-vert-auto" bsStyle="primary" type="submit">Log In</Button>
           </form>
         </Tab>
         <Tab eventKey={2} title="Sign Up">
@@ -55,6 +57,7 @@ export default class LoginForm extends React.PureComponent {
               controlId="formSignUpEmail"
             >
               <FormControl
+                className="grey"
                 type="text"
                 value={null}
                 placeholder="Email"
@@ -67,6 +70,7 @@ export default class LoginForm extends React.PureComponent {
               controlId="formSignUpLogin"
             >
               <FormControl
+                className="grey"
                 type="text"
                 value={null}
                 placeholder="Login"
@@ -78,6 +82,7 @@ export default class LoginForm extends React.PureComponent {
               controlId="formSignUpPassword"
             >
               <FormControl
+                className="grey"
                 type="password"
                 value={null}
                 placeholder="Password"
@@ -85,7 +90,7 @@ export default class LoginForm extends React.PureComponent {
               />
               <FormControl.Feedback />
             </FormGroup>
-            <Button type="submit">Submit</Button>
+            <Button className="button margin-vert-auto" bsStyle="primary" type="submit">Sign Up</Button>
           </form>
         </Tab>
       </Tabs>
