@@ -1,17 +1,16 @@
-import React, { Component } from 'react';
-import './App.css';
-import NavigationBar from './components/common/header/navbar';
-import LoginPage from './components/login/loginPage';
+import React from 'react';
+import { Provider } from 'react-redux';
 
-class App extends Component {
-  render() {
-    return (
-      <div>
-        {/* <NavigationBar /> */}
-        <LoginPage />
-      </div>
-    );
-  }
-}
+import './App.css';
+import configureStore from 'store/configureStore';
+import Router from 'routing/router';
+
+const store = configureStore();
+
+const App = () => (
+  <Provider store={store}>
+    <Router />
+  </Provider>
+);
 
 export default App;
