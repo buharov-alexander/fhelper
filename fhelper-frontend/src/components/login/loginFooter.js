@@ -31,13 +31,13 @@ export default class LoginFooter extends React.PureComponent {
                   <Col xs={6} sm={3}>
                     <RateWidget
                       imageSrc={micex}
-                      rate={"2404.3"}
+                      rate={"-"}
                     />
                   </Col>
                   <Col xs={6} sm={3}>
                     <RateWidget
                       imageSrc={brent}
-                      rate={"79 usd"}
+                      rate={"-"}
                     />
                   </Col>
                 </Row>

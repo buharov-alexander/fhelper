@@ -4,7 +4,7 @@ import logo from '../../../logo.svg';
 
 const NavigationBar = () => {
   return (
-    <Navbar inverse>
+    <Navbar>
       <Navbar.Header>
         <Navbar.Brand>
           <a href="#">

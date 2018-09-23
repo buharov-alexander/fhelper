@@ -44,8 +44,8 @@ html {
 
 /* Navbar */
 
-.navbar-inverse {
-  background-image: linear-gradient(to bottom, #3c3c3c 0%, #00171F 100%);
+.navbar {
+  background-image: linear-gradient(to bottom, #41BB4C 0%, #0BA449 100%);
 }
 
 .navbar-brand {
