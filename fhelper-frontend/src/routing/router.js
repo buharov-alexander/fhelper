@@ -1,12 +1,16 @@
 
 import React from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import LoginPage from 'components/login/loginPage';
+import NavigationBar from 'components/navbar/navigationBar';
 
 const Router = () => (
   <BrowserRouter>
-    <Route path="/login" component={LoginPage} />
+    <Switch>
+      <Route path="/login" component={LoginPage} />
+      <Route path="/room" component={NavigationBar} />
+    </Switch>
   </BrowserRouter>
 );
 

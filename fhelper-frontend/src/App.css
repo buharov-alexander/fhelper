@@ -48,9 +48,10 @@ html {
   background-image: linear-gradient(to bottom, #41BB4C 0%, #0BA449 100%);
 }
 
-.navbar-brand {
+#navbar-brand {
   display: flex;
   align-items: center;
+  color: #fff;
 }
 
 .navbar-brand > img {
