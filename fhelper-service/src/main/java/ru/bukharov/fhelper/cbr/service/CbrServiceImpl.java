@@ -6,6 +6,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 import org.apache.commons.collections4.CollectionUtils;
 import org.slf4j.Logger;
@@ -16,6 +17,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 import ru.bukharov.fhelper.cbr.dto.CbrDailyRate;
 import ru.bukharov.fhelper.cbr.dto.CbrDailyRates;
 import ru.bukharov.fhelper.cbr.dto.CbrDynamicRates;
+import ru.bukharov.fhelper.cbr.dto.ValutaCode;
 import ru.bukharov.fhelper.common.io.UrlService;
 import ru.bukharov.fhelper.common.marshalling.XmlProvider;
 
@@ -47,7 +49,7 @@ public class CbrServiceImpl implements CbrService {
     }
 
     @Override
-    public CbrDailyRates getDailyRates(Date date, List<String> valutaCodes) {
+    public CbrDailyRates getDailyRates(Date date, List<ValutaCode> valutaCodes) {
         try {
             date = date != null ? date : new Date();
             URL url = UriComponentsBuilder.fromHttpUrl(CBR_URL + XML_DAILY)
@@ -66,7 +68,11 @@ public class CbrServiceImpl implements CbrService {
     }
 
     @Override
-    public CbrDynamicRates getDynamicRates(String valutaCode, Date rangeFrom, Date rangeTo) {
+    public CbrDynamicRates getDynamicRates(ValutaCode valutaCode, Date rangeFrom, Date rangeTo) {
+        if (Objects.isNull(valutaCode)) {
+            throw new IllegalArgumentException("The valutaCode is not specified");
+        }
+
         try {
             URL url = UriComponentsBuilder.fromHttpUrl(CBR_URL + XML_DYNAMIC)
                     .queryParam(RANGE_FROM, cbrDateFormat.format(rangeFrom))
@@ -83,10 +89,14 @@ public class CbrServiceImpl implements CbrService {
         }
     }
 
-    private void filterValuta(CbrDailyRates cbrDailyRates, List<String> valutaCodes) {
+    private void filterValuta(CbrDailyRates cbrDailyRates, List<ValutaCode> valutaCodes) {
         if (CollectionUtils.isNotEmpty(valutaCodes)) {
+            List<String> valutaCodesStr = valutaCodes.stream()
+                .map(ValutaCode::getCode)
+                .collect(Collectors.toList());
+
             List<CbrDailyRate> rates = cbrDailyRates.getRates().stream()
-                    .filter(rate -> valutaCodes.contains(rate.getId()))
+                    .filter(rate -> valutaCodesStr.contains(rate.getId()))
                     .collect(Collectors.toList());
             cbrDailyRates.setRates(rates);
         }
