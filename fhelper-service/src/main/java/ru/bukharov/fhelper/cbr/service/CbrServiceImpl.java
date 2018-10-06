@@ -19,7 +19,8 @@ import ru.bukharov.fhelper.cbr.dto.CbrDailyRates;
 import ru.bukharov.fhelper.cbr.dto.CbrDynamicRates;
 import ru.bukharov.fhelper.cbr.dto.ValutaCode;
 import ru.bukharov.fhelper.common.io.UrlService;
-import ru.bukharov.fhelper.common.marshalling.XmlProvider;
+import ru.bukharov.fhelper.common.marshalling.Marshaller;
+import ru.bukharov.fhelper.common.marshalling.XmlMarshaller;
 
 @Service
 public class CbrServiceImpl implements CbrService {
@@ -34,13 +35,13 @@ public class CbrServiceImpl implements CbrService {
     private final Logger log = LoggerFactory.getLogger(CbrServiceImpl.class);
 
     private final UrlService urlService;
-    private final XmlProvider xmlProvider;
+    private final Marshaller marshaller;
     private final DateFormat cbrDateFormat = new SimpleDateFormat("dd.MM.yyyy");
 
     @Autowired
-    public CbrServiceImpl(UrlService urlService, XmlProvider xmlProvider) {
+    public CbrServiceImpl(UrlService urlService, XmlMarshaller marshaller) {
         this.urlService = urlService;
-        this.xmlProvider = xmlProvider;
+        this.marshaller = marshaller;
     }
 
     @Override
@@ -58,7 +59,7 @@ public class CbrServiceImpl implements CbrService {
                     .toUri()
                     .toURL();
 
-            CbrDailyRates cbrDailyRates = xmlProvider.unmarshal(urlService.readUrl(url), CbrDailyRates.class);
+            CbrDailyRates cbrDailyRates = marshaller.unmarshal(urlService.readUrl(url), CbrDailyRates.class);
             filterValuta(cbrDailyRates, valutaCodes);
             return cbrDailyRates;
         } catch (IOException e) {
@@ -82,7 +83,7 @@ public class CbrServiceImpl implements CbrService {
                     .toUri()
                     .toURL();
 
-            return xmlProvider.unmarshal(urlService.readUrl(url), CbrDynamicRates.class);
+            return marshaller.unmarshal(urlService.readUrl(url), CbrDynamicRates.class);
         } catch (IOException e) {
             log.error(e.getMessage(), e);
             return null;
@@ -92,8 +93,8 @@ public class CbrServiceImpl implements CbrService {
     private void filterValuta(CbrDailyRates cbrDailyRates, List<ValutaCode> valutaCodes) {
         if (CollectionUtils.isNotEmpty(valutaCodes)) {
             List<String> valutaCodesStr = valutaCodes.stream()
-                .map(ValutaCode::getCode)
-                .collect(Collectors.toList());
+                    .map(ValutaCode::getCode)
+                    .collect(Collectors.toList());
 
             List<CbrDailyRate> rates = cbrDailyRates.getRates().stream()
                     .filter(rate -> valutaCodesStr.contains(rate.getId()))

@@ -7,9 +7,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 @Service
-public class XmlJacksonProvider implements XmlProvider {
+public class XmlMarshaller implements Marshaller {
 
-    private final Logger log = LoggerFactory.getLogger(XmlJacksonProvider.class);
+    private final Logger log = LoggerFactory.getLogger(XmlMarshaller.class);
 
     @Override
     public <T> T unmarshal(String xml, Class<T> clazz) throws IOException {
