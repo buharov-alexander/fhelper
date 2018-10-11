@@ -11,7 +11,7 @@ const NavigationBar = () => {
             <img src={logo} id="app-logo" alt="logo" />FHelper
           </a>
         </Navbar.Brand>
-        <Navbar.Toggle />
+        <Navbar.Toggle id="navbar-toggle"/>
       </Navbar.Header>
     </Navbar>
   )

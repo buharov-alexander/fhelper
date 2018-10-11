@@ -2,18 +2,16 @@ import React from 'react';
 import { Grid, Row, Col } from 'react-bootstrap';
 
 import LoginForm from 'components/login/loginForm';
-import Footer from 'containers/common/footer';
 
 export default class LoginPage extends React.PureComponent {
 
   render() {
     return (
       <div>
-        <main className="login-main">
           <Grid fluid>
             <Row className="row-eq-height">
               <Col className="no-padding">
-                <div className="green-gradient login-top-block">
+                <div className="green-gradient login-block">
                   <h1 id="login-label" className="white">FHelper</h1>
                   <LoginForm />
                 </div>
@@ -32,10 +30,6 @@ export default class LoginPage extends React.PureComponent {
               </Col>
             </Row>
           </Grid>
-        </main>
-        <footer className="footer">
-          <Footer />
-        </footer>
       </div>
     );
   }

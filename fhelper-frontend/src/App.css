@@ -54,10 +54,14 @@ html {
   color: #fff;
 }
 
-.navbar-brand > img {
+#navbar-brand img {
   animation: App-logo-spin infinite 20s linear;
   display: inline-block;
   height: 40px;
+}
+
+#navbar-toggle .icon-bar {
+  background-color: #fff;
 }
 
 @keyframes App-logo-spin {
@@ -73,19 +77,19 @@ html {
   width: 100%;
 }
 
-/* Login Page */
-
-.login-main {
+.main {
   margin-bottom: 60px;
 }
 
 @media (max-width: 544px) { 
-  .login-main {
+  .main {
     margin-bottom: 120px;
   }
 }
 
-.login-top-block {
+/* Login Page */
+
+.login-block {
   padding: 100px 20px 100px 20px;
   margin-bottom: 10px;
   border-radius: 0px 0px 25px 0px;
