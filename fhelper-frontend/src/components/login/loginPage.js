@@ -2,7 +2,7 @@ import React from 'react';
 import { Grid, Row, Col } from 'react-bootstrap';
 
 import LoginForm from 'components/login/loginForm';
-import LoginFooter from 'components/login/loginFooter';
+import Footer from 'containers/common/footer';
 
 export default class LoginPage extends React.PureComponent {
 
@@ -34,7 +34,7 @@ export default class LoginPage extends React.PureComponent {
           </Grid>
         </main>
         <footer className="footer">
-          <LoginFooter />
+          <Footer />
         </footer>
       </div>
     );

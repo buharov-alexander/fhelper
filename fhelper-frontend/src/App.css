@@ -93,10 +93,6 @@ html {
   width: 340px;
 }
 
-.login-bottom-block {
-  border-radius: 25px 0px 0px 0px;
-}
-
 .form-login {
   padding: 15px;
   background-color: #fff;
@@ -152,6 +148,12 @@ html {
     background: #c0761c;
     box-shadow: none;
     outline: none;
+}
+
+/* Footer */
+
+.footer-main-block {
+  border-radius: 25px 0px 0px 0px;
 }
 
 /* Rates */
