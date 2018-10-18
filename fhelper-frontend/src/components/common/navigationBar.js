@@ -7,7 +7,7 @@ const NavigationBar = () => {
     <Navbar>
       <Navbar.Header>
         <Navbar.Brand>
-          <a id="navbar-brand" href="#">
+          <a id="navbar-brand" href="/room">
             <img src={logo} id="app-logo" alt="logo" />FHelper
           </a>
         </Navbar.Brand>

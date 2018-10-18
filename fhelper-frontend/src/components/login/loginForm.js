@@ -5,15 +5,19 @@ export default class LoginForm extends React.PureComponent {
   static propTypes = {};
 
   validationLogin = () => {
+    return null;
   }
 
   changeLogin = () => {
+    return null;
   }
 
   validationPassword = () => {
+    return null;
   }
 
   changePassword = () => {
+    return null;
   }
 
 
@@ -24,12 +28,12 @@ export default class LoginForm extends React.PureComponent {
           <form className="form-login">
             <FormGroup
               controlId="formLogin"
-              validationState={this.validationLogin}
+              validationState={this.validationLogin()}
             >
               <FormControl
                 className="grey"
                 type="text"
-                value={null}
+                value={""}
                 placeholder="Login"
                 onChange={this.changeLogin}
               />
@@ -37,12 +41,12 @@ export default class LoginForm extends React.PureComponent {
             </FormGroup>
             <FormGroup
               controlId="formPassword"
-              validationState={this.validationPassword}
+              validationState={this.validationPassword()}
             >
               <FormControl
                 className="grey"
                 type="password"
-                value={null}
+                value={""}
                 placeholder="Password"
                 onChange={this.changePassword}
               />
@@ -59,7 +63,7 @@ export default class LoginForm extends React.PureComponent {
               <FormControl
                 className="grey"
                 type="text"
-                value={null}
+                value={""}
                 placeholder="Email"
                 onChange={this.changeLogin}
               />
@@ -72,7 +76,7 @@ export default class LoginForm extends React.PureComponent {
               <FormControl
                 className="grey"
                 type="text"
-                value={null}
+                value={""}
                 placeholder="Login"
                 onChange={this.changeLogin}
               />
@@ -84,7 +88,7 @@ export default class LoginForm extends React.PureComponent {
               <FormControl
                 className="grey"
                 type="password"
-                value={null}
+                value={""}
                 placeholder="Password"
                 onChange={this.changePassword}
               />

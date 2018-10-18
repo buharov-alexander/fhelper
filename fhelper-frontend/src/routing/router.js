@@ -3,8 +3,8 @@ import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import LoginPage from 'components/login/loginPage';
-import NavigationBar from 'components/navbar/navigationBar';
-import Footer from 'containers/common/footer';
+import NavigationBar from 'components/common/navigationBar';
+import FooterContainer from 'containers/common/footerContainer';
 
 const Router = () => (
   <BrowserRouter>
@@ -15,9 +15,7 @@ const Router = () => (
           <Route path="/room" component={NavigationBar} />
         </Switch>
       </main>
-      <footer className="footer">
-        <Footer />
-      </footer>
+      <FooterContainer />
     </div>
   </BrowserRouter>
 );
