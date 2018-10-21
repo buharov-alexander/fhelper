@@ -2,7 +2,7 @@ import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import { Grid, Row, Col } from 'react-bootstrap';
 
-import { usaFlag, euroFlag, micex } from 'constants/images';
+import { usaFlag, euroFlag, micex, rts } from 'constants/images';
 import RateWidget from 'components/widgets/rateWidget';
 import {
   USD,
@@ -47,7 +47,7 @@ class Footer extends PureComponent {
     const usdWidget = this.getWidget(usdValue, usaFlag),
           euroWidget = this.getWidget(eurValue, euroFlag),
           micexWidget = this.getWidget(imoexValue, micex),
-          rtsiWidget = this.getWidget(rtsiValue, micex);
+          rtsiWidget = this.getWidget(rtsiValue, rts);
     return (
       <footer className="footer">
         <Grid fluid>
