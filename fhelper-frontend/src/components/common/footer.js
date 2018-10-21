@@ -4,18 +4,22 @@ import { Grid, Row, Col } from 'react-bootstrap';
 
 import { usaFlag, euroFlag, micex } from 'constants/images';
 import RateWidget from 'components/widgets/rateWidget';
+import {
+  USD,
+  EUR,
+} from 'constants/valutaCodes';
 
 class Footer extends PureComponent {
 
   static propTypes = {
     cbrRates: PropTypes.object,
     moexRates: PropTypes.object,
-    loadCbrRates: PropTypes.func.isRequired,
+    loadCurrentCbrRates: PropTypes.func.isRequired,
     loadMoexRates: PropTypes.func.isRequired,
   }
 
   componentWillMount() {
-    this.props.loadCbrRates();
+    this.props.loadCurrentCbrRates();
     this.props.loadMoexRates();
   }
 
@@ -30,8 +34,12 @@ class Footer extends PureComponent {
 
   render() {
     const {moexRates, cbrRates} = this.props;
-    const usdWidget = this.getWidget("65.7 rub", usaFlag),
-          euroWidget = this.getWidget("78.5 rub", euroFlag),
+
+    const usdValue = cbrRates.has(USD) ? cbrRates.get(USD).value.toFixed(1) : '-';
+    const eurValue = cbrRates.has(EUR) ? cbrRates.get(EUR).value.toFixed(1) : '-';
+
+    const usdWidget = this.getWidget(usdValue, usaFlag),
+          euroWidget = this.getWidget(eurValue, euroFlag),
           micexWidget = this.getWidget("2380", micex),
           rtsiWidget = this.getWidget("1134", micex);
     return (

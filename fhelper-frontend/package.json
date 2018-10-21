@@ -24,8 +24,8 @@
   },
   "homepage": "/fhelper",
   "proxy": {
-    "/fhelper/api": {
-      "target": "http://localhost:8080/fhelper",
+    "/fhelper": {
+      "target": "http://localhost:8080",
       "ws": true
     }
   }
