@@ -8,19 +8,23 @@ import {
   USD,
   EUR,
 } from 'constants/valutaCodes';
+import {
+  IMOEX,
+  RTSI,
+} from 'constants/indexCodes';
 
 class Footer extends PureComponent {
 
   static propTypes = {
     cbrRates: PropTypes.object,
-    moexRates: PropTypes.object,
+    moexIndexes: PropTypes.object,
     loadCurrentCbrRates: PropTypes.func.isRequired,
-    loadMoexRates: PropTypes.func.isRequired,
+    loadCurrentMoexIndexes: PropTypes.func.isRequired,
   }
 
   componentWillMount() {
     this.props.loadCurrentCbrRates();
-    this.props.loadMoexRates();
+    this.props.loadCurrentMoexIndexes();
   }
 
   getWidget(rate, imageSrc) {
@@ -33,15 +37,17 @@ class Footer extends PureComponent {
   }
 
   render() {
-    const {moexRates, cbrRates} = this.props;
+    const {moexIndexes, cbrRates} = this.props;
 
     const usdValue = cbrRates.has(USD) ? cbrRates.get(USD).value.toFixed(1) : '-';
     const eurValue = cbrRates.has(EUR) ? cbrRates.get(EUR).value.toFixed(1) : '-';
+    const imoexValue = moexIndexes.has(IMOEX) ? moexIndexes.get(IMOEX).value.toFixed(1) : '-';
+    const rtsiValue = moexIndexes.has(RTSI) ? moexIndexes.get(RTSI).value.toFixed(1) : '-';
 
     const usdWidget = this.getWidget(usdValue, usaFlag),
           euroWidget = this.getWidget(eurValue, euroFlag),
-          micexWidget = this.getWidget("2380", micex),
-          rtsiWidget = this.getWidget("1134", micex);
+          micexWidget = this.getWidget(imoexValue, micex),
+          rtsiWidget = this.getWidget(rtsiValue, micex);
     return (
       <footer className="footer">
         <Grid fluid>

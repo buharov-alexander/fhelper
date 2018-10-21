@@ -2,19 +2,19 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import Footer from 'components/common/footer';
-import {loadCurrentCbrRates} from 'actions/cbr/cbrActions';
-import {loadMoexRates} from 'actions/moex/moexActions';
+import {loadCurrentCbrRates} from 'actions/cbrActions';
+import {loadCurrentMoexIndexes} from 'actions/moexActions';
 
 const FooterContainer = props => <Footer {...props} />
 
 const mapStateToProps = state => {
   return {
-    moexRates: state.moex.rates,
+    moexIndexes: state.moex.currentIndexes,
     cbrRates: state.cbr.currentRates
   }
 }
 
 export default connect(mapStateToProps, {
   loadCurrentCbrRates,
-  loadMoexRates
+  loadCurrentMoexIndexes
 })(FooterContainer);

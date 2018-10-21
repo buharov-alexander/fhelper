@@ -1,4 +1,4 @@
-import {Map} from 'immutable';
+import { Map } from 'immutable';
 
 import {
   LOAD_CURRENT_CBR_RATES,
