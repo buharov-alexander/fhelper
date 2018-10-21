@@ -31,7 +31,7 @@ public class MoexController {
 
     @GetMapping(path = "/index/daily", produces = {MediaType.APPLICATION_JSON_VALUE})
     public List<IndexViewDTO> getIndexDaily(
-            @RequestParam(name = "valutaCodes", required = false) List<IndexEnum> indexes) {
+            @RequestParam(name = "indexCodes", required = false) List<IndexEnum> indexes) {
         try {
             Securities securities = moexService.getIndexDaily();
             List<String> indexesStr = indexes.stream().map(IndexEnum::toString).collect(Collectors.toList());
