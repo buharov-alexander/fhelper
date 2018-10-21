@@ -9,7 +9,6 @@ import org.springframework.web.util.UriComponentsBuilder;
 import ru.bukharov.fhelper.common.io.UrlService;
 import ru.bukharov.fhelper.common.marshalling.JsonMarshaller;
 import ru.bukharov.fhelper.common.marshalling.Marshaller;
-import ru.bukharov.fhelper.moex.dto.IndexEnum;
 import ru.bukharov.fhelper.moex.dto.Securities;
 
 @Service
@@ -29,9 +28,9 @@ public class MoexServiceImpl implements MoexService {
     }
 
     @Override
-    public Securities getIndexDaily(IndexEnum index) {
+    public Securities getIndexDaily() {
         try {
-            URL url = UriComponentsBuilder.fromHttpUrl(MOEX_INDEX + index + JSON)
+            URL url = UriComponentsBuilder.fromHttpUrl(MOEX_INDEX + JSON)
                     .build()
                     .toUri()
                     .toURL();

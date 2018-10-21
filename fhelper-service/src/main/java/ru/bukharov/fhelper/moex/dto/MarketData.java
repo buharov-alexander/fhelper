@@ -1,10 +1,10 @@
 package ru.bukharov.fhelper.moex.dto;
 
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,18 +21,34 @@ public class MarketData {
     private List<String> columns;
     private List<List<Object>> data;
 
-    public Map<String, Object> toMap() {
-        List<Object> values = this.data.get(0);
-        if (columns.size() != values.size()) {
-            throw new UnsupportedOperationException("Cannot transform MarketData to map");
-        }
+    public List<IndexViewDTO> toIndexViewDtoList() throws ParseException {
+        int nameIndex = 0;
+        int dateIndex = 0;
+        int valueIndex = 0;
 
-        Map<String, Object> map = new HashMap<>();
         for (int i = 0; i < columns.size(); i++) {
-            map.put(columns.get(i), values.get(i));
+            switch (columns.get(i)) {
+                case NAME:
+                    nameIndex = i;
+                    break;
+                case DATE:
+                    dateIndex = i;
+                    break;
+                case VALUE:
+                    valueIndex = i;
+                    break;
+            }
         }
 
-        return map;
+        List<IndexViewDTO> list = new ArrayList<>();
+        for (List<Object> indexData : data) {
+            list.add(IndexViewDTO.builder()
+                .name(indexData.get(nameIndex).toString())
+                .date(getDataFormat().parse(indexData.get(dateIndex).toString()))
+                .value(Double.valueOf(indexData.get(valueIndex).toString()))
+                .build());
+        }
+        return list;
     }
 
     public static DateFormat getDataFormat() {
