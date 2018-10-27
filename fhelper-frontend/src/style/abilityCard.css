@@ -1,0 +1,9 @@
+.ability-card {
+  padding: 10px;
+  margin: 5px;
+  text-align: center;
+  background-color: #F9F9F9;
+}
+.ability-card img {
+  width: 60%;
+}

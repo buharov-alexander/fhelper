@@ -35,13 +35,6 @@ html {
   justify-content: center;
 }
 
-.row-eq-height {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
 /* Navbar */
 
 .navbar {
@@ -78,12 +71,12 @@ html {
 }
 
 .main {
-  margin-bottom: 60px;
+  margin-bottom: 70px;
 }
 
-@media (max-width: 544px) { 
+@media (max-width: 768px) { 
   .main {
-    margin-bottom: 120px;
+    margin-bottom: 130px;
   }
 }
 
@@ -91,10 +84,10 @@ html {
 
 .login-block {
   padding: 100px 20px 100px 20px;
+  margin-right: 20px;
   margin-bottom: 10px;
   border-radius: 0px 0px 25px 0px;
   height: 500px;
-  width: 340px;
 }
 
 .form-login {
@@ -108,7 +101,6 @@ html {
 }
 
 #form-login-tabs {
-  width: 300px;
   border-radius: 25px;
 }
 

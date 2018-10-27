@@ -51,7 +51,7 @@ class Footer extends PureComponent {
     return (
       <footer className="footer">
         <Grid fluid>
-          <Row className="row-eq-height">
+          <Row>
             <Col xs={2}>
             </Col>
             <Col xs={10} className="green-gradient footer-main-block flex-vert-center">

@@ -8,7 +8,7 @@ import FooterContainer from 'containers/common/footerContainer';
 
 const Router = () => (
   <BrowserRouter>
-    <div>
+    <div id="router">
       <main className="main">
         <Switch>
           <Route path="/login" component={LoginPage} />
