@@ -1,0 +1,46 @@
+.login-block {
+  padding: 100px 20px 100px 20px;
+  border-radius: 20px;
+  height: 500px;
+  margin-bottom: 10px;
+}
+
+@media (min-width: 1200px) { 
+  .login-block {
+      max-width: 300px;
+      margin-left: auto;
+    }
+}
+
+
+.form-login {
+  padding: 15px;
+  background-color: #fff;
+  border-radius: 25px;
+}
+
+#login-label {
+  margin-top: 0;
+}
+
+#form-login-tabs {
+  border-radius: 25px;
+}
+
+#form-login-tabs a {
+  background-color: transparent;
+  color: #777;
+  border: none;
+  outline: none;
+  text-align: center;
+}
+
+#form-login-tabs li.active a {
+  color: #000000;
+  text-decoration: underline;
+}
+
+#form-login-tabs li {
+    width: 50%;
+}
+
