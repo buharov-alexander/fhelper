@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Image } from 'react-bootstrap';
 
+import 'style/rateWidget.css';
+
 const RateWidget = ({ imageSrc, rate }) => (
   <div>
     <Image className="img-rate" src={imageSrc} circle />

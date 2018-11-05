@@ -2,6 +2,7 @@ import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import { Grid, Row, Col } from 'react-bootstrap';
 
+import 'style/footer.css';
 import { usaFlag, euroFlag, micex, rts } from 'constants/images';
 import RateWidget from 'components/widgets/rateWidget';
 import {

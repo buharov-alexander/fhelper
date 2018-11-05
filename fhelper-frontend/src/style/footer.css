@@ -1,0 +1,19 @@
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.main {
+  margin-bottom: 70px;
+}
+
+@media (max-width: 768px) { 
+  .main {
+    margin-bottom: 130px;
+  }
+}
+
+.footer-main-block {
+  border-radius: 25px 0px 0px 0px;
+}

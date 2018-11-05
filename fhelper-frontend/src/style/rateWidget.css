@@ -1,0 +1,12 @@
+.img-rate {
+  margin: 10px 0;
+  height: 40px;
+  width: 40px;
+}
+
+.label-rate {
+  display: inline;
+  margin-left: 10px;
+  vertical-align: middle;
+  font-size: 1.2em;
+}
