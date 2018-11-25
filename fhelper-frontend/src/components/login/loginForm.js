@@ -13,9 +13,12 @@ class LoginForm extends React.PureComponent {
 
   render() {
     return (
-      <Tabs id="form-login-tabs" className="grey margin-vert-auto" defaultActiveKey={1}>
-        <Tab eventKey={1} title="Log In">
-          <form className="form-login">
+      <Tabs transition={false} 
+            className="form-login-tabs radius-up-left radius-up-right grey margin-vert-auto"
+            defaultActiveKey={1}
+            variant="pills">
+        <Tab eventKey={1} className="radius-up-left" title="Log In">
+          <form className="form-login"> 
             <FormGroup
               controlId="formLogin">
               <Field
@@ -40,7 +43,7 @@ class LoginForm extends React.PureComponent {
             <Button className="button margin-vert-auto" bsStyle="primary" type="submit">Log In</Button>
           </form>
         </Tab>
-        <Tab eventKey={2} title="Sign Up">
+        <Tab eventKey={2} className="radius-up-right" title="Sign Up">
           <form className="form-login">
             <FormGroup
               controlId="formSignUpEmail">

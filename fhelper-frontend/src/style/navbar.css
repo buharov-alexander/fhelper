@@ -1,5 +1,6 @@
 .navbar {
   background-image: linear-gradient(to bottom, #41BB4C 0%, #0BA449 100%);
+  margin-bottom: 10px;
 }
 
 #navbar-brand {
@@ -14,8 +15,8 @@
   height: 40px;
 }
 
-#navbar-toggle .icon-bar {
-  background-color: #fff;
+#navbar-toggle {
+  border-color: #fff;
 }
 
 @keyframes App-logo-spin {
