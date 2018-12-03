@@ -7,12 +7,12 @@ import NavigationBar from 'components/common/navigationBar';
 import FooterContainer from 'containers/common/footerContainer';
 
 const Router = () => (
-  <BrowserRouter>
+  <BrowserRouter basename="/fhelper/ui">
     <div id="router">
       <main className="main">
-      <NavigationBar />
+        <NavigationBar />
         <Switch>
-          <Route path="/login" component={LoginPage} />
+          <Route path="/welcome" component={LoginPage} />
           <Route path="/room" component={null} />
         </Switch>
       </main>

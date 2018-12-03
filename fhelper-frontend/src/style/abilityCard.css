@@ -1,10 +1,17 @@
 .ability-card {
+  margin: 5px;
   padding: 10px;
   text-align: center;
   background-color: #F9F9F9;
   height: 240px;
 }
+
 .ability-card img {
-  max-width: 60%;
-  max-height: 60%;
+  max-width: 70%;
+  max-height: 70%;
+  margin: auto;
+}
+
+.ability-card .card-title {
+  font-size: 1.8rem;
 }

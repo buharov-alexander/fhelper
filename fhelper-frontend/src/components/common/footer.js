@@ -1,6 +1,6 @@
 import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
-import { Grid, Row, Col } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 
 import 'style/footer.css';
 import { usaFlag, euroFlag, micex, rts } from 'constants/images';
@@ -51,34 +51,34 @@ class Footer extends PureComponent {
           rtsiWidget = this.getWidget(rtsiValue, rts);
     return (
       <footer className="footer">
-        <Grid fluid>
+        <Container fluid>
           <Row>
             <Col xs={2}>
             </Col>
             <Col xs={10} className="green-gradient footer-main-block flex-vert-center">
               <Row>
-                <Col md={8}>
+                <Col lg={8}>
                   <Row>
-                    <Col xs={6} sm={3}>
+                    <Col xs={6} md={3}>
                       {usdWidget}
                     </Col>
-                    <Col xs={6} sm={3}>
+                    <Col xs={6} md={3}>
                       {euroWidget}
                     </Col>
-                    <Col xs={6} sm={3}>
+                    <Col xs={6} md={3}>
                       {micexWidget}
                     </Col>
-                    <Col xs={6} sm={3}>
+                    <Col xs={6} md={3}>
                       {rtsiWidget}
                     </Col>
                   </Row>
                 </Col>
-                <Col md={4}>
+                <Col lg={4}>
                 </Col>
               </Row>
             </Col>
           </Row>
-        </Grid>
+        </Container>
       </footer>
     );
   }

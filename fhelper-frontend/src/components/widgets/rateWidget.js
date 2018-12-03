@@ -6,7 +6,7 @@ import 'style/rateWidget.css';
 
 const RateWidget = ({ imageSrc, rate }) => (
   <div>
-    <Image className="img-rate" src={imageSrc} circle />
+    <Image className="img-rate" src={imageSrc} roundedCircle />
     <div className="white label-rate">
       {rate}
     </div>

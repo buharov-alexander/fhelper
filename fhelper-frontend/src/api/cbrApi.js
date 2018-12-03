@@ -10,5 +10,5 @@ export const dailyRatesRequest = (valutaCodes, date) =>  {
   }
 
   queryParams = queryParams.join('&');
-  return fetch(`fhelper/cbr/rates/daily?${queryParams}`);
+  return fetch(`/fhelper/cbr/rates/daily?${queryParams}`);
 };

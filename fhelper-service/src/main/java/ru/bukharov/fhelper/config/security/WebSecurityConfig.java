@@ -17,11 +17,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     public void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/cbr/**", "/moex/**").permitAll()
+                .antMatchers("/cbr/**", "/moex/**", "/static/js/*.js", "/static/css/*.css", "/static/media/*").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
-                .loginPage("/login")
+                .loginPage("/ui/welcome")
                 .permitAll()
                 .and()
                 .logout()

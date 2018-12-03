@@ -16,31 +16,32 @@
 .form-login {
   padding: 15px;
   background-color: #fff;
-  border-radius: 25px;
+  border-radius: 0px 0px 25px 25px;
 }
 
 #login-label {
   margin-top: 0;
 }
 
-#form-login-tabs {
-  border-radius: 25px;
+.radius-up-left, .radius-up-left a {
+  border-top-left-radius: 25px;
 }
 
-#form-login-tabs a {
+.radius-up-right, .radius-up-right a {
+  border-top-right-radius: 25px;
+}
+
+.form-login-tabs a.nav-item {
   background-color: transparent;
   color: #777;
   border: none;
   outline: none;
   text-align: center;
+  width: 50%;
 }
 
-#form-login-tabs li.active a {
+.form-login-tabs a.nav-item.active {
   color: #000000;
   text-decoration: underline;
+  background: none;
 }
-
-#form-login-tabs li {
-    width: 50%;
-}
-
