@@ -7,5 +7,5 @@ export const dailyIndexRequest = (indexCodes) =>  {
   }
 
   queryParams = queryParams.join('&');
-  return fetch(`fhelper/moex/index/daily?${queryParams}`);
+  return fetch(`/fhelper/moex/index/daily?${queryParams}`);
 };
