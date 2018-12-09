@@ -2,7 +2,7 @@ import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 
 import 'style/login.css';
-import LoginForm from 'components/login/loginForm';
+import LoginView from 'components/login/loginView';
 import AbilityCard from 'components/widgets/abilityCard';
 import { bank, debitCard, piggyBank, money } from 'constants/images';
 
@@ -17,7 +17,7 @@ export default class LoginPage extends React.PureComponent {
           <Col md={4} xl={3}>
             <div className="green-gradient login-block">
               <h1 id="login-label" className="white">Welcome</h1>
-              <LoginForm />
+              <LoginView />
             </div>
           </Col>
           <Col md={8} xl={5}>
