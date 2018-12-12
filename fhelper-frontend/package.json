@@ -23,7 +23,7 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-  "homepage": "/fhelper",
+  "homepage": "/",
   "proxy": {
     "/fhelper": {
       "target": "http://localhost:8080",
