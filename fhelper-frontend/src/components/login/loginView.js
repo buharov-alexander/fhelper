@@ -1,10 +1,10 @@
-import React from 'react';
-import { Tabs, Tab, Form, Button } from 'react-bootstrap';
-import { Field, reduxForm } from 'redux-form';
+import React, {PureComponent} from 'react';
+import { Tabs, Tab } from 'react-bootstrap';
 
-import FormEntry from 'components/form/formEntry'
+import SignInForm from './signInForm';
+import SignUpForm from './signUpForm';
 
-class LoginView extends React.PureComponent {
+class LoginView extends PureComponent {
   static propTypes = {};
 
   render() {
@@ -13,49 +13,14 @@ class LoginView extends React.PureComponent {
             defaultActiveKey={1}
             variant="pills">
         <Tab eventKey={1} className="radius-up-left" title="Log In">
-          <Form className="form-login"> 
-            <FormEntry
-              controlId="signInLogin"
-              type="text"
-              className="grey"
-              name="login"
-              placeholder="Login" />
-            <FormEntry
-              controlId="signInPassword"
-              type="password"
-              className="grey"
-              name="password"
-              placeholder="Password"/>
-            <Button className="button margin-vert-auto" bsStyle="primary" type="submit">Log In</Button>
-          </Form>
+          <SignInForm />
         </Tab>
         <Tab eventKey={2} className="radius-up-right" title="Sign Up">
-          <Form className="form-login">
-            <FormEntry
-              controlId="signUpLogin"
-              type="text"
-              className="grey"
-              name="login"
-              placeholder="Login" />
-            <FormEntry
-              controlId="signUpEmail"
-              type="text"
-              className="grey"
-              name="email"
-              placeholder="Email" />
-            <FormEntry
-              controlId="signUpPassword"
-              type="password"
-              className="grey"
-              name="password"
-              placeholder="Password" />
-            <Button className="button margin-vert-auto" bsStyle="primary" type="submit">Sign Up</Button>
-          </Form>
+          <SignUpForm />
         </Tab>
       </Tabs>
     );
   }
 }
 
-LoginView = reduxForm({ form: 'LoginView' })(LoginView);
 export default LoginView;
