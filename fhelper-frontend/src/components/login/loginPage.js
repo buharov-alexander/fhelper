@@ -6,7 +6,6 @@ import LoginView from 'components/login/loginView';
 import AbilityCard from 'components/widgets/abilityCard';
 import { bank, debitCard, piggyBank, money } from 'constants/images';
 
-
 export default class LoginPage extends React.PureComponent {
 
   render() {
