@@ -1,33 +1,37 @@
-import React, {PureComponent} from 'react';
+import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import { Tabs, Tab } from 'react-bootstrap';
 
 import SignInForm from './signInForm';
 import SignUpForm from './signUpForm';
 
 class LoginView extends PureComponent {
-  static propTypes = {};
+  static propTypes = {
+    signIn: PropTypes.func.isRequired,
+  };
 
-  signIn = values => {
-    console.log(values);
+  handleSignIn = values => {
+    const { signInLogin, signInPassword } = values;
+    this.props.signIn({ username: signInLogin, password: signInPassword });
   }
 
-  signUp = values => {
+  handleSignUp = values => {
     console.log(values);
   }
 
   render() {
     return (
       <Tabs className="form-login-tabs radius-up-left radius-up-right grey margin-vert-auto"
-            defaultActiveKey={1}
-            variant="pills">
+        defaultActiveKey={1}
+        variant="pills">
         <Tab eventKey={1} className="radius-up-left" title="Log In">
           <SignInForm
-            onSubmit={this.signIn}
+            onSubmit={this.handleSignIn}
           />
         </Tab>
         <Tab eventKey={2} className="radius-up-right" title="Sign Up">
           <SignUpForm
-            onSubmit={this.signUp}
+            onSubmit={this.handleSignUp}
           />
         </Tab>
       </Tabs>
