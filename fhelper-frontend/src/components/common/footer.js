@@ -1,4 +1,4 @@
-import React, {PureComponent} from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Container, Row, Col } from 'react-bootstrap';
 
@@ -38,7 +38,7 @@ class Footer extends PureComponent {
   }
 
   render() {
-    const {moexIndexes, cbrRates} = this.props;
+    const { moexIndexes, cbrRates } = this.props;
 
     const usdValue = cbrRates.has(USD) ? cbrRates.get(USD).value.toFixed(1) : '-';
     const eurValue = cbrRates.has(EUR) ? cbrRates.get(EUR).value.toFixed(1) : '-';
@@ -46,9 +46,9 @@ class Footer extends PureComponent {
     const rtsiValue = moexIndexes.has(RTSI) ? moexIndexes.get(RTSI).value.toFixed(1) : '-';
 
     const usdWidget = this.getWidget(usdValue, usaFlag),
-          euroWidget = this.getWidget(eurValue, euroFlag),
-          micexWidget = this.getWidget(imoexValue, micex),
-          rtsiWidget = this.getWidget(rtsiValue, rts);
+      euroWidget = this.getWidget(eurValue, euroFlag),
+      micexWidget = this.getWidget(imoexValue, micex),
+      rtsiWidget = this.getWidget(rtsiValue, rts);
     return (
       <footer className="footer">
         <Container fluid>

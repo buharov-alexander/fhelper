@@ -1,6 +1,6 @@
 import { List } from 'immutable';
 
-export const dailyRatesRequest = (valutaCodes, date) =>  {
+export const dailyRatesRequest = (valutaCodes, date) => {
   let queryParams = List();
   if (date) {
     queryParams = queryParams.push(`date=${date}`);
