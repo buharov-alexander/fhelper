@@ -1,5 +1,4 @@
 import { signInRequest } from 'api/userApi';
-import { push } from 'react-router-redux';
 import {
   FETCH_REQUEST,
   LOGIN_SUCCESS,
@@ -18,6 +17,5 @@ export const signIn = ({ username, password }) => (dispatch) => {
       } else {
         dispatch({ type: LOGIN_SUCCESS, payload: { username } });
       }
-      dispatch(push(responseUrl));
     });
 }
