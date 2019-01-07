@@ -5,7 +5,7 @@ import {
   LOGIN_FAILURE,
 } from 'constants/actionTypes';
 
-export const signIn = ({ username, password }) => (dispatch) => {
+export const signIn = ({ username, password }, history) => (dispatch) => {
   dispatch({ type: FETCH_REQUEST, payload: 'signIn' });
 
   signInRequest({ username, password })
@@ -16,6 +16,7 @@ export const signIn = ({ username, password }) => (dispatch) => {
         dispatch({ type: LOGIN_FAILURE });
       } else {
         dispatch({ type: LOGIN_SUCCESS, payload: { username } });
+        history.push('../room');
       }
     });
 }

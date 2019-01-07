@@ -16,7 +16,7 @@ export default class LoginPage extends PureComponent {
           <Col md={4} xl={3}>
             <div className="green-gradient login-block">
               <h1 id="login-label" className="white">Welcome</h1>
-              <LoginViewContainer />
+              <LoginViewContainer history={this.props.history} />
             </div>
           </Col>
           <Col md={8} xl={5}>

@@ -12,7 +12,7 @@ class LoginView extends PureComponent {
 
   handleSignIn = values => {
     const { signInLogin, signInPassword } = values;
-    this.props.signIn({ username: signInLogin, password: signInPassword });
+    this.props.signIn({ username: signInLogin, password: signInPassword }, this.props.history);
   }
 
   handleSignUp = values => {
