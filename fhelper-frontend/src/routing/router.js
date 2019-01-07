@@ -4,7 +4,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import LoginPage from 'components/login/loginPage';
 import NavigationBar from 'components/common/navigationBar';
-import FooterContainer from 'containers/common/footerContainer';
+import FooterContainer from 'components/common/footer/footerContainer';
 
 const Router = () => (
   <BrowserRouter basename="/fhelper/ui">

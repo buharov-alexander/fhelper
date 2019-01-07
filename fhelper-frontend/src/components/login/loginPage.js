@@ -2,8 +2,8 @@ import React, { PureComponent } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 
 import 'style/login.css';
-import LoginViewContainer from 'containers/login/loginViewContainer';
-import AbilityCard from 'components/widgets/abilityCard';
+import LoginViewContainer from './loginViewContainer';
+import AbilityCard from './abilityCard';
 import { bank, debitCard, piggyBank, money } from 'constants/images';
 
 export default class LoginPage extends PureComponent {

@@ -4,7 +4,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 
 import 'style/footer.css';
 import { usaFlag, euroFlag, micex, rts } from 'constants/images';
-import RateWidget from 'components/widgets/rateWidget';
+import RateWidget from './rateWidget';
 import {
   USD,
   EUR,
