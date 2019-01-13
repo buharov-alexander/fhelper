@@ -1,15 +1,14 @@
 package ru.bukharov.fhelper.account.dto.assembler;
 
 import ru.bukharov.fhelper.account.domain.AccountEntity;
-import ru.bukharov.fhelper.account.dto.AccountViewDTO;
+import ru.bukharov.fhelper.account.dto.CreateAccountDTO;
 import ru.bukharov.fhelper.common.rest.dto.DtoAssembler;
 
-public class AccountViewDtoAssembler extends DtoAssembler<AccountEntity, AccountViewDTO> {
+public class CreateAccountAssembler extends DtoAssembler<AccountEntity, CreateAccountDTO> {
 
     @Override
-    public AccountViewDTO convertToDto(AccountEntity accountEntity) {
-        return AccountViewDTO.builder()
-                .id(accountEntity.getId())
+    public CreateAccountDTO convertToDto(AccountEntity accountEntity) {
+        return CreateAccountDTO.builder()
                 .name(accountEntity.getName())
                 .type(accountEntity.getType())
                 .valuta(accountEntity.getValuta())
@@ -17,9 +16,8 @@ public class AccountViewDtoAssembler extends DtoAssembler<AccountEntity, Account
     }
 
     @Override
-    public AccountEntity convertToEntity(AccountViewDTO accountDTO) {
+    public AccountEntity convertToEntity(CreateAccountDTO accountDTO) {
         return AccountEntity.builder()
-                .id(accountDTO.getId())
                 .name(accountDTO.getName())
                 .type(accountDTO.getType())
                 .valuta(accountDTO.getValuta())

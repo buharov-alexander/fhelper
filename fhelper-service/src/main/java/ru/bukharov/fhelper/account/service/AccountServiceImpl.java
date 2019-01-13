@@ -6,7 +6,9 @@ import org.apache.commons.collections4.IteratorUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.bukharov.fhelper.account.dao.AccountDao;
+import ru.bukharov.fhelper.account.dao.AccountStateDao;
 import ru.bukharov.fhelper.account.domain.AccountEntity;
+import ru.bukharov.fhelper.account.domain.AccountStateEntity;
 import ru.bukharov.fhelper.user.domain.UserEntity;
 import ru.bukharov.fhelper.user.service.UserService;
 
@@ -14,11 +16,13 @@ import ru.bukharov.fhelper.user.service.UserService;
 public class AccountServiceImpl implements AccountService {
 
     private final AccountDao accountDao;
+    private final AccountStateDao accountStateDao;
     private final UserService userService;
 
     @Autowired
-    public AccountServiceImpl(AccountDao accountDao, UserService userService) {
+    public AccountServiceImpl(AccountDao accountDao, AccountStateDao accountStateDao, UserService userService) {
         this.accountDao = accountDao;
+        this.accountStateDao = accountStateDao;
         this.userService = userService;
     }
 
@@ -34,6 +38,11 @@ public class AccountServiceImpl implements AccountService {
         UserEntity currentLoggedInUser = userService.getCurrentLoggedInUser();
         accountEntity.setUserId(currentLoggedInUser.getId());
         return accountDao.save(accountEntity);
+    }
+
+    @Override
+    public List<AccountStateEntity> getAccountStates(Long accountId) {
+        return accountStateDao.findByAccountId(accountId);
     }
 
 }

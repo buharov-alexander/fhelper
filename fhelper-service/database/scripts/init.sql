@@ -1,5 +1,5 @@
 CREATE SEQUENCE public.id_seq
-  START WITH 1
+  START WITH 100
   INCREMENT BY 1
   NO MINVALUE
   NO MAXVALUE
@@ -25,7 +25,18 @@ CREATE TABLE public.accounts (
   user_id integer NOT NULL,
   CONSTRAINT accounts_pkey1 PRIMARY KEY (id),
   CONSTRAINT unique_name UNIQUE (name),
-  CONSTRAINT accounts_fkey1 FOREIGN KEY (user_id)
+  CONSTRAINT account_user_fkey1 FOREIGN KEY (user_id)
       REFERENCES public.users (id) MATCH SIMPLE
+      ON UPDATE CASCADE ON DELETE CASCADE
+);
+
+CREATE TABLE public.account_states (
+  id integer NOT NULL DEFAULT nextval('id_seq'::regclass),
+  date date NOT NULL,
+  balance real NOT NULL,
+  account_id integer NOT NULL,
+  CONSTRAINT account_states_pkey1 PRIMARY KEY (id),
+  CONSTRAINT account_id_fkey1 FOREIGN KEY (account_id)
+      REFERENCES public.accounts (id) MATCH SIMPLE
       ON UPDATE CASCADE ON DELETE CASCADE
 );
