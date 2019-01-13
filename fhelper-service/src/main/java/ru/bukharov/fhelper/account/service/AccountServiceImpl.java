@@ -1,7 +1,9 @@
 package ru.bukharov.fhelper.account.service;
 
 import javax.transaction.Transactional;
+import javax.validation.ValidationException;
 import java.util.List;
+import java.util.Optional;
 import org.apache.commons.collections4.IteratorUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,6 +34,15 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
+    public AccountEntity getAccount(Long id) {
+        Optional<AccountEntity> optional = accountDao.findById(id);
+        if (!optional.isPresent()) {
+            throw new ValidationException(String.format("Account %s is not found", id));
+        }
+        return optional.get();
+    }
+
+    @Override
     @Transactional
     public AccountEntity createAccounts(AccountEntity accountEntity) {
         //TODO add validation
@@ -42,6 +53,8 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public List<AccountStateEntity> getAccountStates(Long accountId) {
+        // validate accountId
+        getAccount(accountId);
         return accountStateDao.findByAccountId(accountId);
     }
 

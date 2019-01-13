@@ -41,6 +41,12 @@ public class AccountController {
         return accountViewAssembler.convertToDtoList(accountEntities);
     }
 
+    @GetMapping(path = "/{id}", produces = {MediaType.APPLICATION_JSON_VALUE})
+    public AccountViewDTO getAccount(@PathVariable Long id) {
+        AccountEntity accountEntity = accountService.getAccount(id);
+        return accountViewAssembler.convertToDto(accountEntity);
+    }
+
     @PostMapping(produces = {MediaType.APPLICATION_JSON_VALUE})
     public AccountViewDTO createAccount(CreateAccountDTO accountDTO) {
         //TODO add validation
@@ -49,7 +55,7 @@ public class AccountController {
         return accountViewAssembler.convertToDto(accountEntity);
     }
 
-    @GetMapping(path = "/{id}/states",produces = {MediaType.APPLICATION_JSON_VALUE})
+    @GetMapping(path = "/{id}/states", produces = {MediaType.APPLICATION_JSON_VALUE})
     public List<AccountStateViewDTO> getAccountStates(@PathVariable Long id) {
         List<AccountStateEntity> accountStateEntities = accountService.getAccountStates(id);
         return accountStateViewAssembler.convertToDtoList(accountStateEntities);

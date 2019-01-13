@@ -7,6 +7,8 @@ import ru.bukharov.fhelper.account.domain.AccountStateEntity;
 public interface AccountService {
     List<AccountEntity> getAccounts();
 
+    AccountEntity getAccount(Long id);
+
     AccountEntity createAccounts(AccountEntity accountEntity);
 
     List<AccountStateEntity> getAccountStates(Long accountId);
