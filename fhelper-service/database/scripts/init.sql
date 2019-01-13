@@ -13,7 +13,6 @@ CREATE TABLE public.users
   email character varying(80) NOT NULL,
   enabled boolean NOT NULL,
   CONSTRAINT users_pkey1 PRIMARY KEY (id),
-  CONSTRAINT unique_email UNIQUE (email),
   CONSTRAINT unique_username UNIQUE (username)
 );
 
@@ -22,11 +21,11 @@ CREATE TABLE public.accounts (
   name character varying(80) NOT NULL,
   type character varying(40) NOT NULL,
   valuta character varying(40) NOT NULL,
-  user_id integer NOT NULL,
+  owner character varying(80) NOT NULL,
   CONSTRAINT accounts_pkey1 PRIMARY KEY (id),
   CONSTRAINT unique_name UNIQUE (name),
-  CONSTRAINT account_user_fkey1 FOREIGN KEY (user_id)
-      REFERENCES public.users (id) MATCH SIMPLE
+  CONSTRAINT account_user_fkey1 FOREIGN KEY (owner)
+      REFERENCES public.users (username) MATCH SIMPLE
       ON UPDATE CASCADE ON DELETE CASCADE
 );
 

@@ -31,5 +31,5 @@ public class AccountEntity {
     @Enumerated(EnumType.STRING)
     private ValutaEnum valuta;
 
-    private Long userId;
+    private String owner;
 }

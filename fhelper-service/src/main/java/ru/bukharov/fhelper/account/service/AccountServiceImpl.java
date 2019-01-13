@@ -47,7 +47,7 @@ public class AccountServiceImpl implements AccountService {
     public AccountEntity createAccounts(AccountEntity accountEntity) {
         //TODO add validation
         UserEntity currentLoggedInUser = userService.getCurrentLoggedInUser();
-        accountEntity.setUserId(currentLoggedInUser.getId());
+        accountEntity.setOwner(currentLoggedInUser.getUsername());
         return accountDao.save(accountEntity);
     }
 
