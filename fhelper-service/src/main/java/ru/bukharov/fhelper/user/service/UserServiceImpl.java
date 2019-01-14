@@ -4,6 +4,8 @@ import javax.transaction.Transactional;
 import java.util.Collections;
 import java.util.Objects;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -24,8 +26,14 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public String getCurrentLoggedInUsername() {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        return auth.getName();
+    }
+
+    @Override
     public UserEntity getCurrentLoggedInUser() {
-        return userDAO.findAll().iterator().next();
+        return userDAO.findByUsername(getCurrentLoggedInUsername());
     }
 
     @Override
