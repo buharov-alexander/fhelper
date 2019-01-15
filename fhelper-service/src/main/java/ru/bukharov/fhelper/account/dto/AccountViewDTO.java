@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import ru.bukharov.fhelper.account.domain.AccountEntity;
 import ru.bukharov.fhelper.account.domain.AccountTypeEnum;
 import ru.bukharov.fhelper.account.domain.ValutaEnum;
 
@@ -17,4 +18,5 @@ public class AccountViewDTO {
     private String name;
     private AccountTypeEnum type;
     private ValutaEnum valuta;
+    private AccountStateViewDTO state;
 }

@@ -29,8 +29,5 @@ public class AccountStateEntity {
 
     private Date date;
     private Double balance;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "account_id")
-    private AccountEntity account;
+    private Long accountId;
 }

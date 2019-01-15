@@ -6,6 +6,8 @@ import ru.bukharov.fhelper.common.rest.dto.DtoAssembler;
 
 public class AccountViewAssembler extends DtoAssembler<AccountEntity, AccountViewDTO> {
 
+    private AccountStateViewAssembler accountStateViewAssembler = new AccountStateViewAssembler();
+
     @Override
     public AccountViewDTO convertToDto(AccountEntity accountEntity) {
         return AccountViewDTO.builder()
@@ -13,6 +15,7 @@ public class AccountViewAssembler extends DtoAssembler<AccountEntity, AccountVie
                 .name(accountEntity.getName())
                 .type(accountEntity.getType())
                 .valuta(accountEntity.getValuta())
+                .state(accountStateViewAssembler.convertToDto(accountEntity.getState()))
                 .build();
     }
 
@@ -23,6 +26,7 @@ public class AccountViewAssembler extends DtoAssembler<AccountEntity, AccountVie
                 .name(accountDTO.getName())
                 .type(accountDTO.getType())
                 .valuta(accountDTO.getValuta())
+                .state(accountStateViewAssembler.convertToEntity(accountDTO.getState()))
                 .build();
     }
 }
