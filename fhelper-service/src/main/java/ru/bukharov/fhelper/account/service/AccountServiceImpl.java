@@ -2,6 +2,7 @@ package ru.bukharov.fhelper.account.service;
 
 import javax.transaction.Transactional;
 import javax.validation.ValidationException;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import org.apache.commons.collections4.IteratorUtils;
@@ -11,6 +12,7 @@ import ru.bukharov.fhelper.account.dao.AccountDao;
 import ru.bukharov.fhelper.account.dao.AccountStateDao;
 import ru.bukharov.fhelper.account.domain.AccountEntity;
 import ru.bukharov.fhelper.account.domain.AccountStateEntity;
+import ru.bukharov.fhelper.account.dto.CreateAccountStateDTO;
 import ru.bukharov.fhelper.user.domain.UserEntity;
 import ru.bukharov.fhelper.user.service.UserService;
 
@@ -44,11 +46,19 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     @Transactional
-    public AccountEntity createAccounts(AccountEntity accountEntity) {
+    public AccountEntity createAccount(AccountEntity accountEntity) {
         //TODO add validation
         UserEntity currentLoggedInUser = userService.getCurrentLoggedInUser();
         accountEntity.setOwner(currentLoggedInUser.getUsername());
+        accountEntity.setState(getDefaultState());
         return accountDao.save(accountEntity);
+    }
+
+    private AccountStateEntity getDefaultState() {
+        return AccountStateEntity.builder()
+                .date(new Date())
+                .balance(0d)
+                .build();
     }
 
     @Override
@@ -56,6 +66,12 @@ public class AccountServiceImpl implements AccountService {
         // validate accountId
         getAccount(accountId);
         return accountStateDao.findByAccountId(accountId);
+    }
+
+    @Override
+    @Transactional
+    public AccountStateEntity createAccountStates(AccountStateEntity accountStateEntity) {
+        return accountStateDao.save(accountStateEntity);
     }
 
 }

@@ -9,7 +9,7 @@ INSERT INTO "public"."accounts" ("id", "name", "type", "valuta", "owner") VALUES
 INSERT INTO "public"."accounts" ("id", "name", "type", "valuta", "owner") VALUES (4, 'Alfa card usd', 'BANK_ACCOUNT', 'USD', 'root');
 
 -- Create test account states
-INSERT INTO "public"."account_states" ("id", "date", "balance", "account_id") VALUES (5, '2019-01-01', 1000, 2);
-INSERT INTO "public"."account_states" ("id", "date", "balance", "account_id") VALUES (6, '2019-01-02', 3000, 3);
-INSERT INTO "public"."account_states" ("id", "date", "balance", "account_id") VALUES (7, '2019-01-01', 100, 4);
-INSERT INTO "public"."account_states" ("id", "date", "balance", "account_id") VALUES (8, '2019-01-02', 200, 4);
+INSERT INTO "public"."account_states" ("id", "date", "balance", "account_id") VALUES (5, '2019-01-01', 0, 2);
+INSERT INTO "public"."account_states" ("id", "date", "balance", "account_id") VALUES (6, '2019-01-02', 0, 3);
+INSERT INTO "public"."account_states" ("id", "date", "balance", "account_id") VALUES (7, '2019-01-01', 0, 4);
+INSERT INTO "public"."account_states" ("id", "date", "balance", "account_id") VALUES (8, '2019-01-02', 100, 4);
