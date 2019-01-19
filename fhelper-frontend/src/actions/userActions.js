@@ -16,7 +16,7 @@ export const signIn = ({ username, password }, history) => (dispatch) => {
         dispatch({ type: LOGIN_FAILURE });
       } else {
         dispatch({ type: LOGIN_SUCCESS, payload: { username } });
-        history.push('../room');
+        history.push('../home');
       }
     });
 }
