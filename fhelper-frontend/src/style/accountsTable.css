@@ -1,0 +1,15 @@
+.accounts-table th, .accounts-table td {
+  padding-left: 0.6rem;
+  padding-right: 0.6rem;
+}
+
+.accounts-table thead {
+  border-bottom: 2px solid black;
+  background-image: linear-gradient(to bottom, #41BB4C 0%, #0BA449 100%);
+}
+
+.accounts-table .row-total {
+  font-weight: bold;
+  border-top: 2px solid black;
+  background-color: rgba(11, 164, 73, .2);
+}

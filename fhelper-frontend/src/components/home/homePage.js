@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 
 import 'style/home.css';
-import AccountTableContainer from 'components/account/table/accountTableContainer'
+import AccountsTableContainer from 'components/account/table/accountsTableContainer'
 
 export default class HomePage extends PureComponent {
 
@@ -10,10 +10,10 @@ export default class HomePage extends PureComponent {
     return (
       <Container fluid>
         <Row>
-          <Col xs={4}>
-            <AccountTableContainer />
+          <Col xs="auto">
+            <AccountsTableContainer />
           </Col>
-          <Col xs={8}>
+          <Col>
             'Right'
           </Col>
         </Row>

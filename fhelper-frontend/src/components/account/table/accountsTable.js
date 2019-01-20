@@ -2,9 +2,10 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 
+import 'style/accountsTable.css';
 import { Table } from 'react-bootstrap';
 
-class AccountTable extends PureComponent {
+class AccountsTable extends PureComponent {
   static propTypes = {
     accounts: ImmutablePropTypes.list,
     fetchAccounts: PropTypes.func.isRequired,
@@ -19,26 +20,20 @@ class AccountTable extends PureComponent {
     </thead>
   );
 
-  getRow = (name, balance) => (
-    <tr>
-      <td>{name}</td>
-      <td>{balance}</td>
-    </tr>
-  );
+  getRow = (props) => <TableRow {...props} />;
 
   getAccountRows = () => {
-    return this.props.accounts.map(account => (
-      <AccountRow
-        key={account.id}
-        name={account.name}
-        balance={account.state.balance}
-      />
-    ));
+    return this.props.accounts.map(account => this.getRow({
+      key: account.id,
+      rowClass: 'row-account',
+      name: account.name,
+      balance: account.state.balance
+    }));
   }
 
   getTotalRow = () => {
     const total = this.props.accounts.reduce((sum, acc) => sum + acc.state.balance, 0);
-    return this.getRow('Total', total);
+    return this.getRow({name: 'Total', rowClass: 'row-total', balance: total});
   }
 
   componentWillMount() {
@@ -47,7 +42,7 @@ class AccountTable extends PureComponent {
 
   render() {
     return (
-      <Table bordered striped hover size="sm">
+      <Table className="accounts-table" size="sm">
         {this.getHeader()}
         <tbody>
           {this.getAccountRows()}
@@ -58,11 +53,11 @@ class AccountTable extends PureComponent {
   }
 }
 
-const AccountRow = ({ name, balance }) => (
-  <tr>
+const TableRow = ({ name, balance, rowClass }) => (
+  <tr className={rowClass}>
     <td>{name}</td>
     <td>{balance}</td>
   </tr>
 );
 
-export default AccountTable;
+export default AccountsTable;
