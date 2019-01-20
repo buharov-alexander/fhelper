@@ -27,7 +27,13 @@ class AccountTable extends PureComponent {
   );
 
   getAccountRows = () => {
-    return this.props.accounts.map(account => this.getRow(account.name, account.state.balance));
+    return this.props.accounts.map(account => (
+      <AccountRow
+        key={account.id}
+        name={account.name}
+        balance={account.state.balance}
+      />
+    ));
   }
 
   getTotalRow = () => {
@@ -41,7 +47,7 @@ class AccountTable extends PureComponent {
 
   render() {
     return (
-      <Table bordered striped size="sm">
+      <Table bordered striped hover size="sm">
         {this.getHeader()}
         <tbody>
           {this.getAccountRows()}
@@ -51,5 +57,12 @@ class AccountTable extends PureComponent {
     );
   }
 }
+
+const AccountRow = ({ name, balance }) => (
+  <tr>
+    <td>{name}</td>
+    <td>{balance}</td>
+  </tr>
+);
 
 export default AccountTable;
