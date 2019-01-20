@@ -4,6 +4,7 @@ import {
   FETCH_SUCCESS,
   FETCH_FAILED,
   LOAD_ACCOUNTS,
+  SET_ACTIVE_ACCOUNT,
 } from 'constants/actionTypes';
 
 export const fetchAccounts = () => (dispatch) => {
@@ -16,3 +17,5 @@ export const fetchAccounts = () => (dispatch) => {
     })
     .catch(error => dispatch({ type: FETCH_FAILED, payload: `loadAccounts: ${error}` }));
 }
+
+export const setActiveAccount = (id) => (dispatch) => dispatch({ type: SET_ACTIVE_ACCOUNT, payload: {id} });

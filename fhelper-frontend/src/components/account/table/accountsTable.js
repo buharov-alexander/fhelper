@@ -8,36 +8,45 @@ import { Table } from 'react-bootstrap';
 class AccountsTable extends PureComponent {
   static propTypes = {
     accounts: ImmutablePropTypes.list,
+    activeAccountId: PropTypes.number,
     fetchAccounts: PropTypes.func.isRequired,
+    setActiveAccount: PropTypes.func.isRequired,
   };
+
+  componentWillMount() {
+    this.props.fetchAccounts();
+  }
+
+  clickOnAccount = (account) => {
+    this.props.setActiveAccount(account.id);
+  }
 
   getHeader = () => (
     <thead>
       <tr>
-        <th>Name</th>
-        <th>Balance</th>
+        <th colSpan="2">Accounts</th>
       </tr>
     </thead>
   );
 
   getRow = (props) => <TableRow {...props} />;
 
+  withValutaSymbol = (balance) =>  (`${balance} ${'\u20bd'}`);
+
   getAccountRows = () => {
-    return this.props.accounts.map(account => this.getRow({
+    const {accounts, activeAccountId} = this.props;
+    return accounts.map(account => this.getRow({
       key: account.id,
-      rowClass: 'row-account',
+      rowClass: `row-account ${account.id === activeAccountId ? 'active-row' : ''}`,
       name: account.name,
-      balance: account.state.balance
+      balance: this.withValutaSymbol(account.state.balance),
+      onClick: () => this.clickOnAccount(account),
     }));
   }
 
   getTotalRow = () => {
     const total = this.props.accounts.reduce((sum, acc) => sum + acc.state.balance, 0);
-    return this.getRow({name: 'Total', rowClass: 'row-total', balance: total});
-  }
-
-  componentWillMount() {
-    this.props.fetchAccounts();
+    return this.getRow({name: 'Total', rowClass: 'row-total', balance: this.withValutaSymbol(total)});
   }
 
   render() {
@@ -53,10 +62,10 @@ class AccountsTable extends PureComponent {
   }
 }
 
-const TableRow = ({ name, balance, rowClass }) => (
-  <tr className={rowClass}>
+const TableRow = ({ name, balance, rowClass, onClick }) => (
+  <tr className={rowClass} onClick={onClick}>
     <td>{name}</td>
-    <td>{balance}</td>
+    <td className="text-right">{balance}</td>
   </tr>
 );
 
