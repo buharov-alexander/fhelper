@@ -11,13 +11,19 @@
 .accounts-table .row-total {
   font-weight: bold;
   border-top: 2px solid black;
-  background-color: rgba(11, 164, 73, .2);
-}
-
-.accounts-table .active-row {
-  background-color: #FF9C27;
 }
 
 .text-right {
   text-align: right;
+}
+
+.accounts-table .active-row {
+  background-color: #FF9C27;
+  animation: activate 500ms ease-in-out forwards;
+}
+
+@keyframes activate {
+  100% {
+    transform: translateX(30px);    
+  }
 }

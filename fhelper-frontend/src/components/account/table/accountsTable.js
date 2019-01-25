@@ -46,7 +46,7 @@ class AccountsTable extends PureComponent {
 
   getTotalRow = () => {
     const total = this.props.accounts.reduce((sum, acc) => sum + acc.state.balance, 0);
-    return this.getRow({name: 'Total', rowClass: 'row-total', balance: this.withValutaSymbol(total)});
+    return this.getRow({name: '', rowClass: 'row-total', balance: this.withValutaSymbol(total)});
   }
 
   render() {
