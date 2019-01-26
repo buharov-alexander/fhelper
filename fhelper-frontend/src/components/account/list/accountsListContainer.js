@@ -2,9 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { fetchAccounts, setActiveAccount } from 'actions/accountActions';
-import AccountsTable from './accountsTable';
+import AccountsList from './accountsList';
 
-const AccountsTableContainer = props => <AccountsTable {...props} />;
+const AccountsListContainer = props => <AccountsList {...props} />;
 
 const mapStateToProps = state => ({
   accounts: state.account.accounts,
@@ -14,4 +14,4 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   { fetchAccounts, setActiveAccount }
-)(AccountsTableContainer);
+)(AccountsListContainer);

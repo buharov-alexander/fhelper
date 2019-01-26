@@ -5,7 +5,7 @@ INSERT INTO "public"."users" ("id", "username", "password", "email", "enabled") 
 
 -- Create test accounts
 INSERT INTO "public"."accounts" ("id", "name", "type", "valuta", "owner") VALUES (2, 'Cash rubs', 'CASH', 'RUB', 'root');
-INSERT INTO "public"."accounts" ("id", "name", "type", "valuta", "owner") VALUES (3, 'Alfa card rubs', 'BANK_ACCOUNT', 'RUB', 'test');
+INSERT INTO "public"."accounts" ("id", "name", "type", "valuta", "owner") VALUES (3, 'Alfa card rubs', 'BANK_ACCOUNT', 'RUB', 'root');
 INSERT INTO "public"."accounts" ("id", "name", "type", "valuta", "owner") VALUES (4, 'Alfa card usd', 'BANK_ACCOUNT', 'USD', 'root');
 
 -- Create test account states

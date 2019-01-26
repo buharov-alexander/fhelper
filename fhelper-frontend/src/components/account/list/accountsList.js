@@ -2,10 +2,10 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 
-import 'style/accountsTable.css';
-import { Table } from 'react-bootstrap';
+import 'style/accountsList.css';
+import { ListGroup } from 'react-bootstrap';
 
-class AccountsTable extends PureComponent {
+class AccountsList extends PureComponent {
   static propTypes = {
     accounts: ImmutablePropTypes.list,
     activeAccountId: PropTypes.number,
@@ -21,23 +21,15 @@ class AccountsTable extends PureComponent {
     this.props.setActiveAccount(account.id);
   }
 
-  getHeader = () => (
-    <thead>
-      <tr>
-        <th colSpan="2">Accounts</th>
-      </tr>
-    </thead>
-  );
-
-  getRow = (props) => <TableRow {...props} />;
-
   withValutaSymbol = (balance) =>  (`${balance} ${'\u20bd'}`);
 
-  getAccountRows = () => {
+  getItem = (props) => <ListItem {...props} />;
+
+  getAccountItems = () => {
     const {accounts, activeAccountId} = this.props;
-    return accounts.map(account => this.getRow({
+    return accounts.map(account => this.getItem({
       key: account.id,
-      rowClass: `row-account ${account.id === activeAccountId ? 'active-row' : ''}`,
+      itemClass: `account-item ${account.id === activeAccountId ? 'active-item' : ''}`,
       name: account.name,
       balance: this.withValutaSymbol(account.state.balance),
       onClick: () => this.clickOnAccount(account),
@@ -51,22 +43,18 @@ class AccountsTable extends PureComponent {
 
   render() {
     return (
-      <Table className="accounts-table" size="sm">
-        {this.getHeader()}
-        <tbody>
-          {this.getAccountRows()}
-          {this.getTotalRow()}
-        </tbody>
-      </Table>
+      <ListGroup>
+        {this.getAccountItems()}
+      </ListGroup>
     );
   }
 }
 
-const TableRow = ({ name, balance, rowClass, onClick }) => (
-  <tr className={rowClass} onClick={onClick}>
-    <td>{name}</td>
-    <td className="text-right">{balance}</td>
-  </tr>
+const ListItem = ({ name, balance, itemClass, onClick }) => (
+  <ListGroup.Item action onClick={onClick} className={itemClass}>
+    {name}
+    <span className='float-right'>{balance}</span>
+  </ListGroup.Item>
 );
 
-export default AccountsTable;
+export default AccountsList;
