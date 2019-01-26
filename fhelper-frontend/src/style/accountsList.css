@@ -6,12 +6,14 @@
   outline: none!important;
   box-shadow: none;
   position: relative;
-	z-index: 1;
+  z-index: 1;
+  display: flex;
+  align-items: center;
 }
 
 .account-item::after {
   content: '';
-  background:  rgba(255, 158, 39, 0.300);
+  background:  #41BB4C;
 	left: 0;
 	bottom: 0;
   height: 100%;
@@ -20,11 +22,24 @@
 	z-index: -1;
 }
 
+.account-item.active-item {
+  color: #fff;
+}
+
 .account-item.active-item:after {
 	width: 100%;
 }
 
-.float-right {
-  float: right;
+.account-row-icon {
+  height: 30px;
+  width: 30px;
+}
+
+.account-row-name {
+  margin-left: 10px;
+  margin-right: auto;
+}
+
+.account-row-balance {
   margin-left: 100px;
 }

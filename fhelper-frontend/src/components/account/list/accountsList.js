@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 
 import 'style/accountsList.css';
-import { ListGroup } from 'react-bootstrap';
+import { ListGroup, Image } from 'react-bootstrap';
+import { getAccountIcon, getValutaSymbol } from 'components/account/accountUtil';
 
 class AccountsList extends PureComponent {
   static propTypes = {
@@ -21,24 +22,36 @@ class AccountsList extends PureComponent {
     this.props.setActiveAccount(account.id);
   }
 
-  withValutaSymbol = (balance) =>  (`${balance} ${'\u20bd'}`);
+  getItem = (account) => {
+    const { activeAccountId } = this.props;
+    const active = account.id === activeAccountId;
 
-  getItem = (props) => <ListItem {...props} />;
+    const itemClass = `account-item ${active ? 'active-item' : ''}`;
+    const img = getAccountIcon({ account, active });
+    return (
+      <ListGroup.Item
+        action
+        className={itemClass}
+        key={account.id}
+        onClick={() => this.clickOnAccount(account)}
+      >
+        <Image className='account-row-icon' src={img} rounded />
+        <div className='account-row-name'>
+          {account.name}
+        </div>
+        <div className='account-row-balance'>
+          {`${account.state.balance} ${getValutaSymbol(account.valuta)}`}
+        </div>
+      </ListGroup.Item>)
+  };
 
   getAccountItems = () => {
-    const {accounts, activeAccountId} = this.props;
-    return accounts.map(account => this.getItem({
-      key: account.id,
-      itemClass: `account-item ${account.id === activeAccountId ? 'active-item' : ''}`,
-      name: account.name,
-      balance: this.withValutaSymbol(account.state.balance),
-      onClick: () => this.clickOnAccount(account),
-    }));
+    return this.props.accounts.map(account => this.getItem(account));
   }
 
   getTotalRow = () => {
     const total = this.props.accounts.reduce((sum, acc) => sum + acc.state.balance, 0);
-    return this.getRow({name: '', rowClass: 'row-total', balance: this.withValutaSymbol(total)});
+    return this.getRow({ name: '', rowClass: 'row-total', balance: this.withValutaSymbol(total) });
   }
 
   render() {
@@ -49,12 +62,5 @@ class AccountsList extends PureComponent {
     );
   }
 }
-
-const ListItem = ({ name, balance, itemClass, onClick }) => (
-  <ListGroup.Item action onClick={onClick} className={itemClass}>
-    {name}
-    <span className='float-right'>{balance}</span>
-  </ListGroup.Item>
-);
 
 export default AccountsList;
