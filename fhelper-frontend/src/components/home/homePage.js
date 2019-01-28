@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
 
+import { Container, Row, Col, Card } from 'react-bootstrap';
 import 'style/home.css';
 import AccountsListContainer from 'components/account/list/accountsListContainer'
 
@@ -11,7 +11,10 @@ export default class HomePage extends PureComponent {
       <Container fluid>
         <Row>
           <Col xs="auto">
-            <AccountsListContainer />
+            <Card>
+              <Card.Header>Accounts</Card.Header>
+              <AccountsListContainer />
+            </Card>
           </Col>
           <Col>
           </Col>
