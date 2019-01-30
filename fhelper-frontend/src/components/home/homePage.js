@@ -3,6 +3,7 @@ import React, { PureComponent } from 'react';
 import { Container, Row, Col, Card } from 'react-bootstrap';
 import 'style/home.css';
 import AccountsListContainer from 'components/account/list/accountsListContainer'
+import AccountCardContainer from 'components/account/details/accountCardContainer'
 
 export default class HomePage extends PureComponent {
 
@@ -17,6 +18,7 @@ export default class HomePage extends PureComponent {
             </Card>
           </Col>
           <Col>
+            <AccountCardContainer />
           </Col>
         </Row>
       </Container>
