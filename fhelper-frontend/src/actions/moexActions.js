@@ -23,4 +23,4 @@ export const loadCurrentMoexIndexes = () => (dispatch) => {
       dispatch({ type: FETCH_SUCCESS, payload: 'loadCurrentMoexIndexes' });
     })
     .catch(error => dispatch({ type: FETCH_FAILED, payload: `loadCurrentMoexIndexes: ${error}` }));
-}
+};

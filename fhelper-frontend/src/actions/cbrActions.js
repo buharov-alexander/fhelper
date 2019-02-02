@@ -23,4 +23,4 @@ export const loadCurrentCbrRates = () => (dispatch) => {
       dispatch({ type: FETCH_SUCCESS, payload: 'loadCurrentCbrRates' });
     })
     .catch(error => dispatch({ type: FETCH_FAILED, payload: `loadCurrentCbrRates: ${error}` }));
-}
+};

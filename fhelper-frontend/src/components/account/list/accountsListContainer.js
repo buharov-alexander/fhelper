@@ -13,5 +13,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { fetchAccounts, setActiveAccount }
+  { fetchAccounts, setActiveAccount },
 )(AccountsListContainer);

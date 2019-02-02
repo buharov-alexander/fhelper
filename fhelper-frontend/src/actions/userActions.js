@@ -9,8 +9,8 @@ export const signIn = ({ username, password }, history) => (dispatch) => {
   dispatch({ type: FETCH_REQUEST, payload: 'signIn' });
 
   signInRequest({ username, password })
-    .then(response => {
-      const origin = window.location.origin;
+    .then((response) => {
+      const { origin } = window.location;
       const responseUrl = response.url.substring(origin.length);
       if (responseUrl.includes('error')) {
         dispatch({ type: LOGIN_FAILURE });
@@ -19,4 +19,4 @@ export const signIn = ({ username, password }, history) => (dispatch) => {
         history.push('../home');
       }
     });
-}
+};

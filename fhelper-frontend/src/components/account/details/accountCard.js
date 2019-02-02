@@ -5,8 +5,12 @@ import 'style/accountsList.css';
 import { Card } from 'react-bootstrap';
 
 class accountCard extends PureComponent {
+  static defaultProps = {
+    account: null,
+  };
+
   static propTypes = {
-    account: ImmutablePropTypes.record
+    account: ImmutablePropTypes.record,
   };
 
   render() {

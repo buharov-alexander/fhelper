@@ -16,6 +16,6 @@ export const fetchAccounts = () => (dispatch) => {
       dispatch({ type: FETCH_SUCCESS, payload: 'loadAccounts' });
     })
     .catch(error => dispatch({ type: FETCH_FAILED, payload: `loadAccounts: ${error}` }));
-}
+};
 
-export const setActiveAccount = (id) => (dispatch) => dispatch({ type: SET_ACTIVE_ACCOUNT, payload: {id} });
+export const setActiveAccount = id => dispatch => dispatch({ type: SET_ACTIVE_ACCOUNT, payload: { id } });

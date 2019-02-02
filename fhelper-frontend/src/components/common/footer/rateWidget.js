@@ -15,9 +15,9 @@ const RateWidget = ({ imageSrc, rate }) => (
 
 RateWidget.propTypes = {
   rate: PropTypes.oneOfType([
-    PropTypes.number.isRequired,
-    PropTypes.string.isRequired,
-  ]),
+    PropTypes.number,
+    PropTypes.string,
+  ]).isRequired,
   imageSrc: PropTypes.string.isRequired,
 };
 

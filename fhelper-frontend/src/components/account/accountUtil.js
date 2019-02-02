@@ -23,7 +23,7 @@ import {
 
 
 export const getAccountIcon = ({ account, active }) => {
-  switch(account.type) {
+  switch (account.type) {
     case CASH:
       return active ? walletWhite : wallet;
     case BANK_ACCOUNT:
@@ -38,7 +38,7 @@ export const getAccountIcon = ({ account, active }) => {
 }
 
 export const getValutaSymbol = (valuta) => {
-  switch(valuta) {
+  switch (valuta) {
     case USD:
       return '\u0024';
     case EUR:
