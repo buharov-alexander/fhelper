@@ -21,7 +21,6 @@ import {
   EUR,
 } from 'constants/valutaCodes';
 
-
 export const getAccountIcon = ({ account, active }) => {
   switch (account.type) {
     case CASH:
@@ -34,6 +33,21 @@ export const getAccountIcon = ({ account, active }) => {
       return active ? analyticsWhite : analytics;
     default:
       return active ? boxWhite : box;
+  }
+};
+
+export const getAccountType = (account) => {
+  switch (account.type) {
+    case CASH:
+      return 'Cash account';
+    case BANK_ACCOUNT:
+      return 'Bank account';
+    case DEPOSIT:
+      return 'Bank deposit';
+    case BROKER_ACCOUNT:
+      return 'Broker account';
+    default:
+      return 'Account';
   }
 };
 
