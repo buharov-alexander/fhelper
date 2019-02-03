@@ -35,7 +35,7 @@ export const getAccountIcon = ({ account, active }) => {
     default:
       return active ? boxWhite : box;
   }
-}
+};
 
 export const getValutaSymbol = (valuta) => {
   switch (valuta) {
@@ -46,4 +46,4 @@ export const getValutaSymbol = (valuta) => {
     default:
       return '\u20bd';
   }
-}
+};

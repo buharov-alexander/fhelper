@@ -7,23 +7,27 @@ import SignUpForm from './signUpForm';
 
 class LoginView extends PureComponent {
   static propTypes = {
+    history: PropTypes.object.isRequired,
     signIn: PropTypes.func.isRequired,
   };
 
-  handleSignIn = values => {
+  handleSignIn = (values) => {
+    const { history, signIn } = this.props;
     const { signInLogin, signInPassword } = values;
-    this.props.signIn({ username: signInLogin, password: signInPassword }, this.props.history);
-  }
+    signIn({ username: signInLogin, password: signInPassword }, history);
+  };
 
-  handleSignUp = values => {
+  handleSignUp = (values) => {
     console.log(values);
-  }
+  };
 
   render() {
     return (
-      <Tabs className="form-login-tabs radius-up-left radius-up-right grey margin-vert-auto"
+      <Tabs
+        className="form-login-tabs radius-up-left radius-up-right grey margin-vert-auto"
         defaultActiveKey={1}
-        variant="pills">
+        variant="pills"
+      >
         <Tab eventKey={1} className="radius-up-left" title="Log In">
           <SignInForm
             onSubmit={this.handleSignIn}

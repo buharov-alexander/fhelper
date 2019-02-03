@@ -8,16 +8,18 @@ import FormEntry from 'components/form/formEntry';
 class SignInForm extends PureComponent {
   static propTypes = {
     onSubmit: PropTypes.func.isRequired,
+    handleSubmit: PropTypes.func.isRequired,
+    reset: PropTypes.func.isRequired,
   };
 
-  submit = values => {
-    const {onSubmit, reset} = this.props;
+  submit = (values) => {
+    const { onSubmit, reset } = this.props;
     onSubmit(values);
     reset();
-  }
+  };
 
   render() {
-    const {handleSubmit} = this.props;
+    const { handleSubmit } = this.props;
     return (
       <Form className="form-login" onSubmit={handleSubmit(this.submit)}>
         <FormEntry
@@ -25,13 +27,15 @@ class SignInForm extends PureComponent {
           type="text"
           className="grey"
           name="signInLogin"
-          placeholder="Login" />
+          placeholder="Login"
+        />
         <FormEntry
           controlId="signInPassword"
           type="password"
           className="grey"
           name="signInPassword"
-          placeholder="Password" />
+          placeholder="Password"
+        />
         <Button className="button margin-vert-auto" variant="primary" type="submit">
           Sign In
         </Button>

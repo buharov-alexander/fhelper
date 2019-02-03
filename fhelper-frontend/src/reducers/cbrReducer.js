@@ -5,7 +5,7 @@ import {
 } from 'constants/actionTypes';
 
 const initialState = {
-  currentRates: Map()
+  currentRates: Map(),
 };
 
 const saveCurrentRates = (state, rates) => {

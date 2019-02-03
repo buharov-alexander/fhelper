@@ -14,12 +14,12 @@ export default function cbrReducer(state = AccountState({}), action) {
   switch (action.type) {
     case LOAD_ACCOUNTS: {
       return state.merge({
-        accounts: action.payload.accounts
+        accounts: action.payload.accounts,
       });
     }
     case SET_ACTIVE_ACCOUNT: {
       return state.merge({
-        activeAccountId: action.payload.id
+        activeAccountId: action.payload.id,
       });
     }
     default:

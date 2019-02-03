@@ -14,6 +14,7 @@ module.exports = {
   rules: {
     'import/prefer-default-export': 'off',
     "react/jsx-filename-extension": ['warn', { "extensions": [".js", ".jsx"] }],
-    'max-len': ['warn', { 'code': 120 }]
+    'max-len': ['warn', { 'code': 120 }],
+    "react/forbid-prop-types": [false],
   }
 }

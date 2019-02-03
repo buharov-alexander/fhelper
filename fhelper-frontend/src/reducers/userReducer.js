@@ -1,5 +1,5 @@
-const initialState = {username: '', logged: false};
+const initialState = { username: '', logged: false };
 
-export default function userReducer(state = initialState, action) {
-    return state;
+export default function userReducer(state = initialState) {
+  return state;
 }

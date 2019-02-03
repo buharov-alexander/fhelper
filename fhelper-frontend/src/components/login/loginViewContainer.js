@@ -1,11 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import LoginView from './loginView';
 import { signIn } from 'actions/userActions';
+import LoginView from './loginView';
 
-const LoginViewContainer = props => <LoginView {...props} />
+const LoginViewContainer = props => <LoginView {...props} />;
 
 export default connect(null, {
-  signIn
+  signIn,
 })(LoginViewContainer);

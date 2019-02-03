@@ -8,9 +8,11 @@ import FormEntry from 'components/form/formEntry';
 class SignUpForm extends PureComponent {
   static propTypes = {
     onSubmit: PropTypes.func.isRequired,
+    handleSubmit: PropTypes.func.isRequired,
+    reset: PropTypes.func.isRequired,
   };
 
-  submit = values => {
+  submit = (values) => {
     const { onSubmit, reset } = this.props;
     onSubmit(values);
     reset();
@@ -25,19 +27,22 @@ class SignUpForm extends PureComponent {
           type="text"
           className="grey"
           name="signUpLogin"
-          placeholder="Login" />
+          placeholder="Login"
+        />
         <FormEntry
           controlId="signUpEmail"
           type="text"
           className="grey"
           name="signUpEmail"
-          placeholder="Email" />
+          placeholder="Email"
+        />
         <FormEntry
           controlId="signUpPassword"
           type="password"
           className="grey"
           name="signUpPassword"
-          placeholder="Password" />
+          placeholder="Password"
+        />
         <Button className="button margin-vert-auto" variant="primary" type="submit">
           Sign In
         </Button>
