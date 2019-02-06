@@ -15,6 +15,7 @@ class AccountsList extends PureComponent {
     accounts: ImmutablePropTypes.list.isRequired,
     activeAccountId: PropTypes.number,
     fetchAccounts: PropTypes.func.isRequired,
+    fetchAccountStates: PropTypes.func.isRequired,
     setActiveAccount: PropTypes.func.isRequired,
   };
 
@@ -24,8 +25,9 @@ class AccountsList extends PureComponent {
   }
 
   clickOnAccount = (account) => {
-    const { setActiveAccount } = this.props;
+    const { setActiveAccount, fetchAccountStates } = this.props;
     setActiveAccount(account.id);
+    fetchAccountStates(account.id);
   }
 
   getItem = (account) => {
