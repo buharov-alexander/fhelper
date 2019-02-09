@@ -1,0 +1,14 @@
+.account-card .nav-link.active {
+  background-color: #41BB4C;
+}
+
+.account-card .nav-link {
+  color: #212529;
+}
+
+.account-card .card-header-pills {
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}

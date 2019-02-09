@@ -5,7 +5,7 @@ import { Nav, Tab } from 'react-bootstrap';
 import AccountStatesTable from './accountStatesTable';
 
 const AccountStatesTabs = ({ accountStates }) => (
-  <Tab.Container defaultActiveKey="states">
+  <Tab.Container className="account-states-tab" defaultActiveKey="states">
     <Nav defaultActiveKey="states" variant="pills">
       <Nav.Item>
         <Nav.Link eventKey="states">States</Nav.Link>
