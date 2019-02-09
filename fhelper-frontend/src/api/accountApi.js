@@ -6,12 +6,17 @@ const AccountStateRecord = Record({
   date: undefined,
 });
 
+const createAccountStateRecord = state => AccountStateRecord({
+  ...state,
+  date: new Date(state.date),
+});
+
 const AccountRecord = Record({
   id: undefined,
   name: undefined,
   valuta: undefined,
   type: undefined,
-  state: AccountStateRecord({}),
+  state: createAccountStateRecord({}),
 });
 
 const createAccountRecord = account => AccountRecord({
@@ -25,4 +30,4 @@ export const accountsRequest = () => fetch('/fhelper/account')
 
 export const accountStatesRequest = id => fetch(`/fhelper/account/${id}/states`)
   .then(response => response.json())
-  .then(response => ({ states: List(response.map(state => AccountStateRecord(state))) }));
+  .then(response => ({ states: List(response.map(state => createAccountStateRecord(state))) }));

@@ -6,7 +6,7 @@ import { Card } from 'react-bootstrap';
 import { getAccountType, getValutaSymbol } from 'components/account/accountUtil';
 import AccountStatesTabs from './accountStatesTabs';
 
-class accountCard extends PureComponent {
+class AccountCard extends PureComponent {
   static defaultProps = {
     account: null,
     accountStates: null,
@@ -18,9 +18,9 @@ class accountCard extends PureComponent {
   };
 
   render() {
-    const { account } = this.props;
+    const { account, accountStates } = this.props;
 
-    if (!account) {
+    if (!account || !accountStates) {
       return null;
     }
 
@@ -31,11 +31,13 @@ class accountCard extends PureComponent {
         <Card.Body>
           <Card.Title>{account.name}</Card.Title>
           <Card.Subtitle className="text-muted">{subtitle}</Card.Subtitle>
-          <AccountStatesTabs />
+          <AccountStatesTabs
+            accountStates={accountStates}
+          />
         </Card.Body>
       </Card>
     );
   }
 }
 
-export default accountCard;
+export default AccountCard;

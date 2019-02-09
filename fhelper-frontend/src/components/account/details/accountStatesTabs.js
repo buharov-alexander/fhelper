@@ -1,14 +1,32 @@
 import React from 'react';
-import { Tabs, Tab } from 'react-bootstrap';
+import ImmutablePropTypes from 'react-immutable-proptypes';
+import { Nav, Tab } from 'react-bootstrap';
 
-const AccountStatesTabs = () => (
-  <Tabs defaultActiveKey="states">
-    <Tab eventKey="states" title="States" />
-    <Tab eventKey="graph" title="Graph" />
-  </Tabs>
+import AccountStatesTable from './accountStatesTable';
+
+const AccountStatesTabs = ({ accountStates }) => (
+  <Tab.Container defaultActiveKey="states">
+    <Nav defaultActiveKey="states" variant="pills">
+      <Nav.Item>
+        <Nav.Link eventKey="states">States</Nav.Link>
+      </Nav.Item>
+      <Nav.Item>
+        <Nav.Link eventKey="graph">Graph</Nav.Link>
+      </Nav.Item>
+    </Nav>
+    <Tab.Content>
+      <Tab.Pane eventKey="states">
+        <AccountStatesTable
+          accountStates={accountStates}
+        />
+      </Tab.Pane>
+      <Tab.Pane eventKey="graph" />
+    </Tab.Content>
+  </Tab.Container>
 );
 
 AccountStatesTabs.propTypes = {
+  accountStates: ImmutablePropTypes.list.isRequired,
 };
 
 export default AccountStatesTabs;
