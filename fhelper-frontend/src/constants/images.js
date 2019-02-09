@@ -19,6 +19,10 @@ import analyticsWhite from 'resources/icon/analytics-white.svg';
 import box from 'resources/icon/box.svg';
 import boxWhite from 'resources/icon/box-white.svg';
 
+import edit from 'resources/icon/edit.svg';
+import add from 'resources/icon/add.svg';
+import remove from 'resources/icon/remove.svg';
+
 export {
   usaFlag,
   euroFlag,
@@ -38,4 +42,7 @@ export {
   analyticsWhite,
   box,
   boxWhite,
+  remove,
+  edit,
+  add,
 };
