@@ -12,9 +12,7 @@ export const signIn = ({ username, password }, history) => (dispatch) => {
     dispatch,
     type: 'signIn',
   }).then((response) => {
-    const { origin } = window.location;
-    const responseUrl = response.url.substring(origin.length);
-    if (responseUrl.includes('error')) {
+    if (response.url && response.url.includes('error')) {
       dispatch({ type: LOGIN_FAILURE });
     } else {
       dispatch({ type: LOGIN_SUCCESS, payload: { username } });
