@@ -1,6 +1,8 @@
 import React, { PureComponent } from 'react';
 import ImmutablePropTypes from 'react-immutable-proptypes';
-import { Table } from 'react-bootstrap';
+import { Table, Image } from 'react-bootstrap';
+
+import { edit, remove } from 'constants/images';
 
 class AccountStatesTable extends PureComponent {
   static propTypes = {
@@ -13,12 +15,19 @@ class AccountStatesTable extends PureComponent {
     day: 'numeric',
   }
 
+  getActions = () => (
+    <div>
+      <Image className="account-state-icon" src={edit} />
+      <Image className="account-state-icon" src={remove} />
+    </div>
+  );
+
   getStateRow = (accountState, index) => (
     <tr key={accountState.id}>
       <td>{index}</td>
       <td>{accountState.date.toLocaleDateString('en-US', AccountStatesTable.options)}</td>
       <td>{accountState.balance}</td>
-      <td />
+      <td>{this.getActions()}</td>
     </tr>
   );
 

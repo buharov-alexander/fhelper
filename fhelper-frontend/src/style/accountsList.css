@@ -2,6 +2,11 @@
   transition: all 550ms cubic-bezier(0.450, 1.000, 0.320, 1.000);
 }
 
+.account-list-header {
+  display: flex;
+  align-items: center;
+}
+
 .account-item {
   outline: none!important;
   box-shadow: none;
@@ -30,13 +35,16 @@
 	width: 100%;
 }
 
-.account-row-icon {
+.account-icon {
   height: 30px;
   width: 30px;
 }
 
 .account-row-name {
   margin-left: 10px;
+  margin-right: auto;
+}
+.accounts-title {
   margin-right: auto;
 }
 

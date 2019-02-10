@@ -3,8 +3,9 @@ import PropTypes from 'prop-types';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 
 import 'style/accountsList.css';
-import { ListGroup, Image } from 'react-bootstrap';
+import { Card, ListGroup, Image } from 'react-bootstrap';
 import { getAccountIcon, getValutaSymbol } from 'components/account/accountUtil';
+import { add } from 'constants/images';
 
 class AccountsList extends PureComponent {
   static defaultProps = {
@@ -43,7 +44,7 @@ class AccountsList extends PureComponent {
         key={account.id}
         onClick={() => this.clickOnAccount(account)}
       >
-        <Image className="account-row-icon" src={img} rounded />
+        <Image className="account-icon" src={img} rounded />
         <div className="account-row-name">
           {account.name}
         </div>
@@ -67,9 +68,17 @@ class AccountsList extends PureComponent {
 
   render() {
     return (
-      <ListGroup>
-        {this.getAccountItems()}
-      </ListGroup>
+      <Card>
+        <Card.Header className="account-list-header">
+          <div className="accounts-title">
+            Accounts
+          </div>
+          <Image className="account-icon" src={add} />
+        </Card.Header>
+        <ListGroup>
+          {this.getAccountItems()}
+        </ListGroup>
+      </Card>
     );
   }
 }

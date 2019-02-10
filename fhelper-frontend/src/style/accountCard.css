@@ -12,3 +12,9 @@
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
+
+.account-state-icon {
+  height: 30px;
+  width: 30px;
+  margin-right: 10px;
+}
