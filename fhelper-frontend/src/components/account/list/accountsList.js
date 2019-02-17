@@ -1,9 +1,10 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import ImmutablePropTypes from 'react-immutable-proptypes';
+import { Card, ListGroup, Image } from 'react-bootstrap';
 
 import 'style/accountsList.css';
-import { Card, ListGroup, Image } from 'react-bootstrap';
+import { ADD_ACCOUNT } from 'constants/modalTypes';
 import { getAccountIcon, getValutaSymbol } from 'components/account/accountUtil';
 import { add } from 'constants/images';
 
@@ -18,6 +19,7 @@ class AccountsList extends PureComponent {
     fetchAccounts: PropTypes.func.isRequired,
     fetchAccountStates: PropTypes.func.isRequired,
     setActiveAccount: PropTypes.func.isRequired,
+    showModal: PropTypes.func.isRequired,
   };
 
   componentWillMount() {
@@ -29,6 +31,14 @@ class AccountsList extends PureComponent {
     const { setActiveAccount, fetchAccountStates } = this.props;
     setActiveAccount(account.id);
     fetchAccountStates(account.id);
+  }
+
+  openAddAccountModal = () => {
+    const { showModal } = this.props;
+    showModal({
+      modalType: ADD_ACCOUNT,
+      modalProps: {},
+    });
   }
 
   getItem = (account) => {
@@ -73,7 +83,7 @@ class AccountsList extends PureComponent {
           <div className="accounts-title">
             Accounts
           </div>
-          <Image className="account-icon" src={add} />
+          <Image className="account-icon button" src={add} onClick={this.openAddAccountModal} />
         </Card.Header>
         <ListGroup>
           {this.getAccountItems()}

@@ -41,6 +41,10 @@
   width: 30px;
 }
 
+.button {
+  cursor: pointer;
+}
+
 .account-row-name {
   margin-left: 10px;
   margin-right: auto;
