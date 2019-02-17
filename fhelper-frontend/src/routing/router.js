@@ -6,6 +6,7 @@ import LoginPage from 'components/login/loginPage';
 import HomePage from 'components/home/homePage';
 import NavigationBar from 'components/common/navigationBar';
 import FooterContainer from 'components/common/footer/footerContainer';
+import RootModal from 'components/modals/rootModal';
 
 const Router = () => (
   <BrowserRouter basename="/fhelper/ui">
@@ -17,6 +18,7 @@ const Router = () => (
           <Route path="/home" component={HomePage} />
         </Switch>
       </main>
+      <RootModal />
       <FooterContainer />
     </div>
   </BrowserRouter>
