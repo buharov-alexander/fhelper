@@ -5,6 +5,7 @@ import moexReducer from './moexReducer';
 import cbrReducer from './cbrReducer';
 import userReducer from './userReducer';
 import accountReducer from './accountReducer';
+import modalReducer from './modalReducer';
 
 export default combineReducers({
   moex: moexReducer,
@@ -12,4 +13,5 @@ export default combineReducers({
   user: userReducer,
   account: accountReducer,
   form: formReducer,
+  modal: modalReducer,
 });
