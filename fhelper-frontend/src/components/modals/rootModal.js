@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 import { Map } from 'immutable';
 
 import { ADD_ACCOUNT } from 'constants/modalTypes';
@@ -10,30 +9,23 @@ const MODAL_COMPONENTS = Map([
   [ADD_ACCOUNT, AddAccountModal],
 ]);
 
-const ModalRoot = ({ modalType, modalProps }) => {
+const RootModal = ({ modalType, ...props }) => {
   if (!modalType) {
     return null;
   }
 
   const SpecificModal = MODAL_COMPONENTS.get(modalType);
-  return <SpecificModal {...modalProps} />;
+  return <SpecificModal {...props} />;
 };
 
-ModalRoot.defaultProps = {
+RootModal.defaultProps = {
   modalType: null,
   modalProps: {},
 };
 
-ModalRoot.propTypes = {
+RootModal.propTypes = {
   modalType: PropTypes.string,
   modalProps: PropTypes.object,
 };
 
-const mapStateToProps = state => ({
-  modalType: state.modal.modalType,
-  modalProps: state.modal.modalProps,
-});
-
-export default connect(
-  mapStateToProps,
-)(ModalRoot);
+export default RootModal;

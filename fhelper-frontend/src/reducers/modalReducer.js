@@ -1,6 +1,6 @@
 import { Record } from 'immutable';
 
-import { SHOW_MODAL } from 'constants/actionTypes';
+import { SHOW_MODAL, CLOSE_MODAL } from 'constants/actionTypes';
 
 const ModalState = Record({
   modalType: null,
@@ -14,6 +14,9 @@ export default function moexReducer(state = ModalState({}), action) {
         modalType: action.payload.modalType,
         modalProps: action.payload.modalProps,
       });
+    }
+    case CLOSE_MODAL: {
+      return ModalState({});
     }
     default:
       return state;

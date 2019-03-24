@@ -5,16 +5,21 @@ import { Modal, Button } from 'react-bootstrap';
 
 class AddAccountsModal extends PureComponent {
   static propTypes = {
-    modalProps: PropTypes.object,
+    closeModal: PropTypes.func.isRequired,
   }
 
   onSubmit = () => {
   }
 
   render() {
+    const { closeModal } = this.props;
     return (
-      <Modal.Dialog>
-        <Modal.Header closeButton>
+      <Modal
+        show
+        size="lg"
+        centered
+      >
+        <Modal.Header>
           <Modal.Title>Add account</Modal.Title>
         </Modal.Header>
 
@@ -23,10 +28,10 @@ class AddAccountsModal extends PureComponent {
         </Modal.Body>
 
         <Modal.Footer>
-          <Button variant="secondary">Close</Button>
+          <Button variant="secondary" onClick={closeModal}>Close</Button>
           <Button variant="primary">Add</Button>
         </Modal.Footer>
-      </Modal.Dialog>
+      </Modal>
     );
   }
 }
