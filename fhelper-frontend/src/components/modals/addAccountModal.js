@@ -64,7 +64,7 @@ class AddAccountsModal extends PureComponent {
         </Modal.Body>
 
         <Modal.Footer>
-          <Button className="button" variant="secondary" onClick={closeModal}>Close</Button>
+          <Button className="button" variant="light" onClick={closeModal}>Close</Button>
           <Button className="button" variant="primary">Add</Button>
         </Modal.Footer>
       </Modal>

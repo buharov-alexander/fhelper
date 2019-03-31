@@ -48,7 +48,7 @@ html {
   border: 0 none;
 }
 
-.button.btn-secondary, button.btn-secondary {
+.button.btn-light, button.btn-light {
   background: #F9F9F9;
   border: 1px solid #ced4da;
   color: #707880;
@@ -63,8 +63,13 @@ html {
     background: #ee9324;
 }
  
-.button.btn-primary:active, .button.btn-primary:focus {
+.btn.button.btn-primary.active,
+.btn.button.btn-primary:focus {
     background: #c0761c;
-    box-shadow: none;
-    outline: none;
+}
+
+.button.btn-primary:active,
+.button.btn-primary:focus, input, button {
+    box-shadow: none!important;
+    outline: none!important;
 }
