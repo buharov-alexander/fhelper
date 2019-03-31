@@ -1,0 +1,13 @@
+.modal .dropdown button {
+  width: 100%
+}
+
+.right-part button {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.left-part {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
