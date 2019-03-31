@@ -27,6 +27,7 @@ class LoginView extends PureComponent {
         className="form-login-tabs radius-up-left radius-up-right grey margin-vert-auto"
         defaultActiveKey={1}
         variant="pills"
+        transition={false}
       >
         <Tab eventKey={1} className="radius-up-left" title="Log In">
           <SignInForm
