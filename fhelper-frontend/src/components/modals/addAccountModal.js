@@ -22,7 +22,7 @@ class AddAccountsModal extends PureComponent {
         show
         centered
       >
-        <Modal.Header>
+        <Modal.Header className="card-header">
           <Modal.Title>Add account</Modal.Title>
         </Modal.Header>
 
@@ -39,7 +39,7 @@ class AddAccountsModal extends PureComponent {
                 />
               </Col>
               <Col className="no-padding">
-                <DropdownButton className="right-part" variant="secondary" title="Dropdown">
+                <DropdownButton className="right-part" variant="light" title="Dropd">
                   <Dropdown.Item>Action</Dropdown.Item>
                 </DropdownButton>
               </Col>
@@ -55,7 +55,7 @@ class AddAccountsModal extends PureComponent {
                 />
               </Col>
               <Col className="no-padding">
-                <DropdownButton className="right-part" variant="secondary" title="Dropdown">
+                <DropdownButton className="right-part" variant="light" title="Dropdown">
                   <Dropdown.Item>Action</Dropdown.Item>
                 </DropdownButton>
               </Col>

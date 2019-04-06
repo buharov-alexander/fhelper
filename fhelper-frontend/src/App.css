@@ -43,7 +43,7 @@ html {
 
 .button {
   display: block;
-  border-radius: 25px;
+  border-radius: 0.25rem;
   width: 120px;
   border: 0 none;
 }
