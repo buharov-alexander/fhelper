@@ -1,11 +1,12 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import {
-  Modal, Button, Form, Row, Col, Dropdown, DropdownButton,
+  Modal, Button, Form, Row, Col,
 } from 'react-bootstrap';
 import { reduxForm } from 'redux-form';
 
 import FormEntry from 'components/form/formEntry';
+import ValutaDropdown from 'components/account/form/valutaDropdown';
 import 'style/modals.css';
 
 class AddAccountsModal extends PureComponent {
@@ -39,9 +40,12 @@ class AddAccountsModal extends PureComponent {
                 />
               </Col>
               <Col className="no-padding">
-                <DropdownButton className="right-part" variant="light" title="Dropd">
-                  <Dropdown.Item>Action</Dropdown.Item>
-                </DropdownButton>
+                <ValutaDropdown
+                  className="right-part"
+                  variant="light"
+                  title="R"
+                  onChange={null}
+                />
               </Col>
             </Row>
             <Row className="no-margin">
@@ -55,9 +59,12 @@ class AddAccountsModal extends PureComponent {
                 />
               </Col>
               <Col className="no-padding">
-                <DropdownButton className="right-part" variant="light" title="Dropdown">
-                  <Dropdown.Item>Action</Dropdown.Item>
-                </DropdownButton>
+                <ValutaDropdown
+                  className="right-part"
+                  variant="light"
+                  title="R"
+                  onChange={null}
+                />
               </Col>
             </Row>
           </Form>
