@@ -46,7 +46,7 @@ class AccountsList extends PureComponent {
     const active = account.id === activeAccountId;
 
     const itemClass = `account-item ${active ? 'active-item' : ''}`;
-    const img = getAccountIcon({ account, active });
+    const img = getAccountIcon({ accountType: account.type, active });
     return (
       <ListGroup.Item
         action

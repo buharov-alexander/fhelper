@@ -7,6 +7,7 @@ import { reduxForm } from 'redux-form';
 
 import FormEntry from 'components/form/formEntry';
 import ValutaDropdown from 'components/account/form/valutaDropdown';
+import TypeDropdown from 'components/account/form/typeDropdown';
 import 'style/modals.css';
 
 class AddAccountsModal extends PureComponent {
@@ -22,6 +23,7 @@ class AddAccountsModal extends PureComponent {
         className="modal"
         show
         centered
+        onHide={closeModal}
       >
         <Modal.Header className="card-header">
           <Modal.Title>Add account</Modal.Title>
@@ -30,7 +32,7 @@ class AddAccountsModal extends PureComponent {
         <Modal.Body>
           <Form className="form-add-account" onSubmit={handleSubmit}>
             <Row className="no-margin">
-              <Col className="no-padding" md={8}>
+              <Col className="no-padding" md={10}>
                 <FormEntry
                   controlId="accountName"
                   type="text"
@@ -40,16 +42,15 @@ class AddAccountsModal extends PureComponent {
                 />
               </Col>
               <Col className="no-padding">
-                <ValutaDropdown
+                <TypeDropdown
                   className="right-part"
                   variant="light"
-                  title="R"
                   onChange={null}
                 />
               </Col>
             </Row>
             <Row className="no-margin">
-              <Col className="no-padding" md={8}>
+              <Col className="no-padding" md={10}>
                 <FormEntry
                   controlId="accountBalance"
                   type="balance"
@@ -62,7 +63,6 @@ class AddAccountsModal extends PureComponent {
                 <ValutaDropdown
                   className="right-part"
                   variant="light"
-                  title="R"
                   onChange={null}
                 />
               </Col>

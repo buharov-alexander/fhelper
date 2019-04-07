@@ -10,7 +10,7 @@ import {
 } from 'constants/valutaCodes';
 
 const ValutaDropdown = ({ onChange, title, ...props }) => (
-  <DropdownButton title={title} {...props}>
+  <DropdownButton title={getValutaSymbol(RUB)} {...props}>
     <Dropdown.Item onClick={onChange}>{getValutaSymbol(RUB)}</Dropdown.Item>
     <Dropdown.Item onClick={onChange}>{getValutaSymbol(USD)}</Dropdown.Item>
     <Dropdown.Item onClick={onChange}>{getValutaSymbol(EUR)}</Dropdown.Item>

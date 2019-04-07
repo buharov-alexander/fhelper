@@ -11,3 +11,8 @@
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
+
+.modal-account-icon {
+  height: 22px;
+  width: 22px;
+}
