@@ -26,7 +26,7 @@ class AccountCard extends PureComponent {
       return null;
     }
 
-    const subtitle = `${getAccountType(account)}, ${getValutaSymbol(account.valuta)}`;
+    const subtitle = `${getAccountType(account.type)}, ${getValutaSymbol(account.valuta)}`;
 
     return (
       <Card className="account-card">

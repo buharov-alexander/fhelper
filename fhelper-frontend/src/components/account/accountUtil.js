@@ -36,18 +36,18 @@ export const getAccountIcon = ({ accountType, active }) => {
   }
 };
 
-export const getAccountType = (account) => {
-  switch (account.type) {
+export const getAccountType = (accountType) => {
+  switch (accountType) {
     case CASH:
-      return 'Cash account';
+      return 'Cash';
     case BANK_ACCOUNT:
       return 'Bank account';
     case DEPOSIT:
-      return 'Bank deposit';
+      return 'Deposit';
     case BROKER_ACCOUNT:
       return 'Broker account';
     default:
-      return 'Account';
+      return 'Common account';
   }
 };
 
