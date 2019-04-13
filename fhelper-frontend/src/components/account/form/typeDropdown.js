@@ -11,7 +11,6 @@ import {
   OTHER,
 } from 'constants/accountTypes';
 
-
 class TypeDropdown extends PureComponent {
   static propTypes = {
     title: PropTypes.string.isRequired,

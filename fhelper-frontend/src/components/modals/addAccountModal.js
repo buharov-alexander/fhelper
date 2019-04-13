@@ -16,6 +16,26 @@ class AddAccountsModal extends PureComponent {
     handleSubmit: PropTypes.func.isRequired,
   }
 
+  renderAccountNameForm = () => (
+    <FormEntry
+      controlId="accountName"
+      type="text"
+      className="grey left-part"
+      name="accountName"
+      placeholder="Account name"
+    />
+  );
+
+  renderAccountBalanceForm = () => (
+    <FormEntry
+      controlId="accountBalance"
+      type="balance"
+      className="grey left-part"
+      name="accountBalance"
+      placeholder="Balance"
+    />
+  );
+
   render() {
     const { closeModal, handleSubmit } = this.props;
     return (
@@ -33,13 +53,7 @@ class AddAccountsModal extends PureComponent {
           <Form className="form-add-account" onSubmit={handleSubmit}>
             <Row className="no-margin">
               <Col className="no-padding" md={10}>
-                <FormEntry
-                  controlId="accountName"
-                  type="text"
-                  className="grey left-part"
-                  name="accountName"
-                  placeholder="Account name"
-                />
+                {this.renderAccountNameForm()}
               </Col>
               <Col className="no-padding">
                 <TypeDropdown
@@ -51,13 +65,7 @@ class AddAccountsModal extends PureComponent {
             </Row>
             <Row className="no-margin">
               <Col className="no-padding" md={10}>
-                <FormEntry
-                  controlId="accountBalance"
-                  type="balance"
-                  className="grey left-part"
-                  name="accountBalance"
-                  placeholder="Balance"
-                />
+                {this.renderAccountBalanceForm()}
               </Col>
               <Col className="no-padding">
                 <ValutaDropdown

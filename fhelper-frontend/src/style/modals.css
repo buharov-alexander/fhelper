@@ -7,6 +7,10 @@
   border-bottom-left-radius: 0;
 }
 
+.right-part .dropdown-menu {
+  min-width: auto;
+}
+
 .left-part {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
