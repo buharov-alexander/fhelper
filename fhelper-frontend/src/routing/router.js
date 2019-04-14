@@ -3,9 +3,9 @@ import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import SignInPage from 'material/login/signInPage';
+import NavigationBar from 'material/header/navigationBar';
 import LoginPage from 'components/login/loginPage';
 import HomePage from 'components/home/homePage';
-import NavigationBar from 'components/common/navigationBar';
 import FooterContainer from 'components/common/footer/footerContainer';
 import RootModalContainer from 'components/modals/rootModalContainer';
 
