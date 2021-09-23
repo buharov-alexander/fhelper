@@ -7,7 +7,10 @@ export default class LoginPage extends PureComponent {
     render() {
         return (
             <div className="b-page b-login-page">
-                <Rocket/>
+                <div className="b-login-page__section">
+                    <Rocket/>
+                </div>
+                <div className="b-login-page__section"/>
             </div>
         );
     }

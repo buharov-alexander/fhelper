@@ -3,6 +3,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+    background: linear-gradient(90deg, rgba(26,166,208,1) 0%, rgba(255,255,255,1) 100%);
 
     .b-rocket__rocket {
         width: 150px;
@@ -23,6 +25,21 @@
             transform: rotate(-45deg);
         }
     }
+
+    .b-rocket__stars {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+
+        .b-rocket__star {
+            position: absolute;
+            width: 2px;
+            background: #fff;
+            animation: star-move linear infinite;
+        }
+    }
 }
 
 @keyframes rocket-move {
@@ -31,5 +48,14 @@
     }
     50% {
         transform: translateY(-4px);
+    }
+}
+
+@keyframes star-move {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(100vh);
     }
 }
