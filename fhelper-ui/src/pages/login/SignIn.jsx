@@ -6,6 +6,10 @@ import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
+import Grid from '@mui/material/Grid';
+import Link from '@mui/material/Link';
+
+import {ReactComponent as GitHubSvg} from 'img/github-logo.svg'
 
 export default function SignIn() {
   const handleSubmit = (event) => {
@@ -63,6 +67,22 @@ export default function SignIn() {
             >
               Sign In
             </Button>
+            <Button
+              fullWidth
+              variant="contained"
+              sx={{ mt: 0, mb: 2 }}
+              startIcon={<GitHubSvg />}
+              style={{backgroundColor: '#334a5e'}}
+            >
+              Sign In with GitHub
+            </Button>
+            <Grid container>
+              <Grid item>
+                <Link onClick={(e) => this.props.handleSwitchForm(e, 'SignUp')} variant="body2" style={{cursor: 'pointer'}}>
+                  {"Don't have an account? Sign Up"}
+                </Link>
+              </Grid>
+            </Grid>
           </Box>
         </Box>
       </Container>
