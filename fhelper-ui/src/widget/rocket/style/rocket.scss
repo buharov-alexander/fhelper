@@ -5,6 +5,7 @@
     justify-content: center;
     position: relative;
     background: linear-gradient(90deg, rgba(26,166,208,1) 0%, rgba(255,255,255,1) 100%);
+    overflow: hidden;
 
     .b-rocket__rocket {
         width: 150px;
