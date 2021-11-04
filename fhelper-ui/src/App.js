@@ -12,7 +12,16 @@ import LoginPage from './pages/login/LoginPage';
 import HomePage from './pages/home/HomePage';
  import './pages/style/page.scss';
 
-const theme = createTheme();
+const theme = createTheme({
+    palette: {
+        primary: {
+            main: '#2196f3'
+        },
+        secondary: {
+          main: '#f44336',
+        },
+      },
+  });
 
 function App() {
     return (
